@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+<!--
+    Base code from : https://www.w3schools.com/howto/howto_css_calendar.asp
+-->
+
+<div class="month">      
+  <ul>
+    <li class="prev" onclick="prev()">&#10094;</li>
+    <li class="next" onclick="next()">&#10095;</li>
+    <li id="currentSelectedMonth">
+      August<br>
+      <span style="font-size:18px">2018</span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays" id="weekdays">
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+  <li>Su</li>
+</ul>
+
+<ul class="days" id ="days">  
+</ul>
+
+</body>
+<script src="calendar.js">
+
+</script>
+</html>
