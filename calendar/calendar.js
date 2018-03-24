@@ -1,43 +1,6 @@
-
-class Calendar{
-    constructor(year = 1970, month = 0){
-        this.DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        this.MONTH_NAMES = new Array();
-        this.MONTH_NAMES[0] = "January";
-        this.MONTH_NAMES[1] = "February";
-        this.MONTH_NAMES[2] = "March";
-        this.MONTH_NAMES[3] = "April";
-        this.MONTH_NAMES[4] = "May";
-        this.MONTH_NAMES[5] = "June";
-        this.MONTH_NAMES[6] = "July";
-        this.MONTH_NAMES[7] = "August";
-        this.MONTH_NAMES[8] = "September";
-        this.MONTH_NAMES[9] = "October";
-        this.MONTH_NAMES[10] = "November";
-        this.MONTH_NAMES[11] = "December";
-        this.month = month;
-        this.year = year;
-        this.date = new Date(year, month - 1, 1);
-
-    }
-    getFirstDay(){
-        return this.DAY_NAMES[this.date.getDay()];
-    }
-    getMonthLength(){
-        return (new Date(this.year, this.month, 0)).getDate();
-    }
-    getCurrentDay(){
-        return (new Date()).getDate();
-    }
-    getCurrentMonth(){
-        return (new Date()).getMonth();
-    }
-    getMonthName(month = 0){
-        return this.MONTH_NAMES[month];
-    }
-}
-
 var cal = new Calendar(2018,(new Date()).getMonth() + 1);
+
+getEvents();
 
 function updateCalendar(){
     
@@ -51,12 +14,30 @@ function updateCalendar(){
     for(var dayNumber = 1; dayNumber <= numberOfDays; dayNumber++){
         var dayLI = document.createElement("li");
         if(dayNumber ==currentDay && currentMonth == cal.month){
-            dayLI.innerHTML = "<span class='active'>"+dayNumber+"</span>";
+            var activeSpan = document.createElement("div");
+            activeSpan.className = "active";
+            activeSpan.innerHTML = dayNumber;
+            dayLI.appendChild(activeSpan);
         }else{
             dayLI.innerHTML = dayNumber;
         }
+        var events_Of_Day = cal.getEventOnDay(dayNumber);
+        console.log("Number of Events: " + events_Of_Day.length);
+        for(var index in events_Of_Day){
+            console.log("Event: " + JSON.stringify(events_Of_Day[index]));
+            var eventSpan = document.createElement("div");
+            eventSpan.className = "event";
+            eventSpan.innerHTML = events_Of_Day[index].name;
+            eventSpan.addEventListener("click",function(){
+                console.log("Click Event");
+            })
+            dayLI.appendChild(document.createElement("br"));
+            dayLI.appendChild(eventSpan);
+        }
+        dayLI.events = events_Of_Day;
         dayLI.addEventListener("click",function(evnt){
             console.log("click me " + evnt.target.innerHTML);
+            console.log("Date Clicked There are "+evnt.target.events.length+" Events for this day");
         });
         daysUL.appendChild(dayLI);
     }
