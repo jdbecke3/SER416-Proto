@@ -3,7 +3,6 @@ var cal = new Calendar(2018,(new Date()).getMonth() + 1);
 getEvents();
 
 function updateCalendar(){
-    
     var daysUL = document.getElementById("days");
     var currentDay = cal.getCurrentDay();
     var currentMonth = cal.getCurrentMonth() + 1;
@@ -13,6 +12,7 @@ function updateCalendar(){
     daysUL.innerHTML = "";
     for(var dayNumber = 1; dayNumber <= numberOfDays; dayNumber++){
         var dayLI = document.createElement("li");
+        dayLI.id = "day_"+dayNumber;
         if(dayNumber ==currentDay && currentMonth == cal.month){
             var activeSpan = document.createElement("div");
             activeSpan.className = "active";
@@ -22,22 +22,31 @@ function updateCalendar(){
             dayLI.innerHTML = dayNumber;
         }
         var events_Of_Day = cal.getEventOnDay(dayNumber);
-        console.log("Number of Events: " + events_Of_Day.length);
+        if(events_Of_Day.length > 0){
+            dayLI.setAttribute("data-toggle","tooltip");
+            dayLI.setAttribute("title","show all");
+        }
+        // ADD Events to Calendar
         for(var index in events_Of_Day){
-            console.log("Event: " + JSON.stringify(events_Of_Day[index]));
-            var eventSpan = document.createElement("div");
-            eventSpan.className = "event";
-            eventSpan.innerHTML = events_Of_Day[index].name;
-            eventSpan.addEventListener("click",function(){
-                console.log("Click Event");
+            var eventDiv = document.createElement("div");
+            eventDiv.event = events_Of_Day[index];
+            if(index % 2 == 0){
+                eventDiv.className = eventDiv.event.type+"_even";
+            }else{
+                eventDiv.className = eventDiv.event.type+"_odd";
+            }
+            eventDiv.innerHTML = events_Of_Day[index].name;
+            eventDiv.addEventListener("click",function(evnt){
+                openModel(evnt.target);
             })
-            dayLI.appendChild(document.createElement("br"));
-            dayLI.appendChild(eventSpan);
+            dayLI.appendChild(eventDiv);
         }
         dayLI.events = events_Of_Day;
         dayLI.addEventListener("click",function(evnt){
             console.log("click me " + evnt.target.innerHTML);
-            console.log("Date Clicked There are "+evnt.target.events.length+" Events for this day");
+            if(evnt.target.id.includes("day")){
+                console.log("Date Clicked There are "+evnt.target.events.length+" Events for this day");
+            }
         });
         daysUL.appendChild(dayLI);
     }
@@ -62,3 +71,47 @@ function prev(){
     updateCalendar();
 }
 updateCalendar();
+
+// Get the modal
+var modal = document.getElementById('myModal');
+var description = document.getElementById("modelDescription");
+var timeDiv = document.getElementById("modelTime");
+var buttonPopup = document.getElementById("popupButton");
+var nameDiv = document.getElementById("modelName");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+function openModel(element) {
+    description.innerHTML = element.event.description;
+    var date = new Date(element.event.dateOfEvent);
+    var h = date.getHours();
+    var m = date.getMinutes();
+    if(h > 12){
+        timeDiv.innerHTML = (h -12) + ":" +m + " PM";
+    }else{
+        timeDiv.innerHTML = (h -12) + ":" +m + " AM";
+    }
+    
+    nameDiv.innerHTML = element.event.name;
+    if(element.event.type == "event"){
+        buttonPopup.setAttribute("value", "Go To This Event Page");
+    }else{
+        buttonPopup.setAttribute("value", "Go To This Class Page");
+    }
+    
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal){
+        modal.style.display = "none";
+    }
+}

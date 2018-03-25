@@ -6,35 +6,108 @@ jsonEvents = `[
         "description":"concert for all ages, ....",
         "name":"concert",
         "isPublic": true,
-        "room" : "Concert Hall"
+        "room" : "Concert Hall",
+        "type" : "event"
     },    
     {
         "dateOfEvent":"2018-04-30T04:21:29.222Z",
         "description":"concert for all ages, ....",
         "name":"concert 2",
         "isPublic": true,
-        "room" : "Concert Hall"
+        "room" : "Concert Hall",
+        "type" : "event"
+    },    
+    {
+        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "description":"concert for all ages, ....",
+        "name":"Yet Another Concert",
+        "isPublic": true,
+        "room" : "Concert Hall",
+        "type" : "event"
     },
     {
         "dateOfEvent":"2018-04-28T04:21:29.222Z",
         "description":"something something, ....",
         "name":"party for the partiers",
         "isPublic": true,
-        "room" : "Party Room"
+        "room" : "Party Room",
+        "type" : "event"
     },
     {
         "dateOfEvent":"2018-05-16T04:21:29.222Z",
         "description":"why cant I think of any events, ....",
         "name":"I am at a loss",
         "isPublic": true,
-        "room" : "Basement"
+        "room" : "Basement",
+        "type" : "event"
     },
     {
         "dateOfEvent":"2018-05-16T04:21:29.222Z",
         "description":"why cant I think of any events, ....",
         "name":"I am at a loss #2",
         "isPublic": true,
-        "room" : "Basement"
+        "room" : "Basement",
+        "type" : "event"
+    },
+    {
+        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "description": "Piano, Violin",
+        "name":"Music Lessons",
+        "isPublic": true,
+        "room" : "Room 1",
+        "teacher" : "Ricky Boobie",
+        "max_students" : 50,
+        "type" : "class"
+    },    
+    {
+        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "description":"Learn how to use your hands for things other then typing or texting.",
+        "name":"Wood Workshop",
+        "isPublic": true,
+        "room" : "Concert Hall",
+        "teacher" : "Ricky Boobie",
+        "max_students" : 50,
+        "type" : "class"
+    },    
+    {
+        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "description":"This class with teach people how to come up with classes as example",
+        "name":"This is a Class",
+        "isPublic": true,
+        "room" : "Room 1",
+        "teacher" : "Ricky Boobie",
+        "max_students" : 50,
+        "type" : "class"
+    },
+    {
+        "dateOfEvent":"2018-04-29T04:21:29.222Z",
+        "description":"Everything Tech",
+        "name":"Tech Workshop",
+        "isPublic": true,
+        "room" : "Room 1",
+        "teacher" : "Ricky Boobie",
+        "max_students" : 50,
+        "type" : "class"
+    },
+    {
+        "dateOfEvent":"2018-05-5T04:21:29.222Z",
+        "description":"Learn how to weave",
+        "name":"Basket Weeving",
+        "isPublic": true,
+        "room" : "Room 2",
+        "teacher" : "Ricky Boobie",
+        "max_students" : 50,
+        "type" : "class"
+    },
+    {
+        "dateOfEvent":"2018-05-11T04:21:29.222Z",
+        "description":"why cant I think of any events, ....",
+        "name":"spanish Lessons",
+        "isPublic": true,
+        "room" : "Room 2",
+        "teacher" : "Ricky Boobie",
+        "max_students" : 50,
+        "type" : "class"
     }
 ]`;
 function getEvents(){
@@ -95,14 +168,10 @@ class Calendar{
         for(var index in this.events){
             var date = new Date(this.events[index].dateOfEvent);
             if(day == date.getDate() && this.year == date.getFullYear() && this.month == date.getMonth()){
-                //console.log("YEAR: ("+this.year+" - "+date.getFullYear()+")");
-                //console.log("Month: ("+this.month+" - "+date.getMonth()+")");
-                //console.log("Date: ("+day+" - "+date.getDate()+")");
                 dayEvents[indexOf] = this.events[index];
                 indexOf++;
             }
         }
-        return dayEvents
+        return dayEvents;
     }
 }
-function getClasses(){}
