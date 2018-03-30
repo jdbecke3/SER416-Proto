@@ -11,6 +11,7 @@ header {
 }
 
 header h1 {
+
 	border-radius: 20px;
 	font-family: arial, helvetica;
 	color: white;
@@ -25,6 +26,41 @@ body {
 	display: block;
 	margin: auto;
 	width: 50%;
+}
+
+#reservationWrapper {
+
+	background-color: #e5e5e5;
+	max-height: 300px;
+	margin-top: 25px;
+	box-shadow: 5px 5px 15px black;
+}
+
+#rms {
+	padding-top: 20px;
+	user-select: none;
+	display: block;
+	height: auto;
+	max-height: 300px;
+	width: 50%;
+	margin: auto;
+	margin-top: 0;
+	transform: scale(1.5);
+	//pointer-events: none;
+}
+
+#rmAText:hover {
+
+	//fill: #b3ffb3 !important;
+	pointer-events: none !important;
+	
+	}
+
+#rmA:hover {
+
+	fill: #b3ffb3 !important;
+	
+
 }
 
 nav {
