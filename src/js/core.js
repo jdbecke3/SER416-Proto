@@ -1,8 +1,15 @@
 
 var rmAText = document.getElementById("rmAText");
+var rmA = document.getElementById("rmA");
 
 rmAText.addEventListener("mouseover", onHover, false);
 rmAText.addEventListener("mouseout", offHover, false);
+rmA.addEventListener("mouseover", onHover, false);
+rmA.addEventListener("mouseout", offHover, false);
+
+rmA.addEventListener("click", processEvent, false);
+rmAText.addEventListener("click", processEvent, false);
+
 
 // For hovering over the text and changing the background of a separate element within the .svg doc
 // This can only be achieved with JS, not CSS since the order of the elements being manipulated are reversed. 
@@ -23,5 +30,11 @@ function offHover () {
 	
 	rmA.style.fill = "#00FF00";
 	
+	
+}
+
+function processEvent() {
+	
+	alert("Placeholder for onclick action");
 	
 }
