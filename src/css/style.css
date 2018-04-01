@@ -30,7 +30,7 @@ body {
 
 #reservationWrapper {
 
-	background-color: #e5e5e5;
+	background-color: white; //#e5e5e5;
 	max-height: 300px;
 	margin-top: 25px;
 	box-shadow: 5px 5px 15px black;
@@ -49,6 +49,12 @@ body {
 	//pointer-events: none;
 }
 
+#bath {
+	
+	fill: black;
+	
+}
+
 /*#rmAText:hover {
 
 	//fill: #b3ffb3 !important;
@@ -63,10 +69,16 @@ body {
 
 }
 
+ .rms {
+
+	transition: fill .3s ease;
+
+	
+}
+
 nav {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-	
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-top: 2px, white;
