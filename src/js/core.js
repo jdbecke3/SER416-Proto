@@ -122,6 +122,32 @@ function offHover (evt) {
 function processEvent(eventObj) {
 	
 	alert("ROOM ID: " + eventObj.target.id + "\n\nClicking would prompt a details dialog box to appear for completing the task...");
+	let refId = eventObj.target.id;
+	let isText = refId.indexOf("Text");
 	
+	if(isText != -1){
+		console.log("Text");
+		refId = refId.substring(0, isText);
+		console.log("new ref:"+refId);;
+	}
+	console.log("\n\nHERE:"+refId);
+	
+	/*NEEDED VARS:
+	
+		- startDate/Time
+		- endDate/Time
+		- Title
+		- Type (Class, Single Event)
+		- Category
+		- 
+	
+	*/
+	
+	// Prompt Pop-Up window to provide more info for event 
+		
+	// Pass to createEvent function 
+		// Fills in information given already
+		// Prompts pop-up to provide more info.
+		
 	
 }

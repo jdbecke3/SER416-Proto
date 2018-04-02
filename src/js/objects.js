@@ -121,8 +121,18 @@ class ObjEvent{
         this.description = description;
         this.name = name;
         this.isPublic = true;
-        this.room = "unkown";
+        this.room = "unkown"; // Room object Reference?
     }
+	
+	/* TODO: Ensure following is integrated in Event Object
+	this.startDate = startDate;
+	this.endDate = endDate; 
+	this.category = category;
+	this.title = "";
+	this.description = "";
+	this.type = ""; // Class/Event
+	this.category ""; // Broader selection of event category. 
+	*/
 }
 
 class Calendar{
