@@ -6,48 +6,65 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Our Calendar</title>
 </head>
 <body>
 <!--
     Base code from : https://www.w3schools.com/howto/howto_css_calendar.asp
 -->
+<header>
+  <h1>Community Service Site</h2> <!-- Change later-->
+  <nav>
+    <ul>
+      <li><a href="home.html" src="./home.html">Home</a></li>
+      <li><a href src="./planner.html">Host</a></li>
+      <li><a href src="./classes.html">Classes</a></li>
+      <li><a href src="./volunteer.html">Volunteer</a></li>
+      <li><a href src="./donate.html">Donate</a></li>					
+    </ul>
+  </nav>
+</header>
+<section class="bodyContent">
+  <div id="calendarContainer">
+    <div class="month">      
+      <ul>
+        <li class="prev" onclick="prev()">&#10094;</li>
+        <li class="next" onclick="next()">&#10095;</li>
+        <li id="currentSelectedMonth">
+          August<br>
+          <span style="font-size:18px">2018</span>
+        </li>
+      </ul>
+    </div>
 
-<div class="month">      
-  <ul>
-    <li class="prev" onclick="prev()">&#10094;</li>
-    <li class="next" onclick="next()">&#10095;</li>
-    <li id="currentSelectedMonth">
-      August<br>
-      <span style="font-size:18px">2018</span>
-    </li>
-  </ul>
-</div>
+    <ul class="weekdays" id="weekdays">
+      <li>Mo</li>
+      <li>Tu</li>
+      <li>We</li>
+      <li>Th</li>
+      <li>Fr</li>
+      <li>Sa</li>
+      <li>Su</li>
+    </ul>
 
-<ul class="weekdays" id="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
+    <ul class="days" id ="days">  
+    </ul>
 
-<ul class="days" id ="days">  
-</ul>
+    <div id="myModal" class="modal">
 
-<div id="myModal" class="modal">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <div>Name: <div id = "modelName" style="display:inline;">Some text in the Modal..</div></div>
+        <div>Description: <div id = "modelDescription" style="display:inline;">Some text in the Modal..</div></div>
+        <div>Time: <div id = "modelTime" style="display:inline;">Some text in the Modal..</div></div>
+        <div id = "modelButtonDiv" style="text-align:center;margin-top: 10px;"><input class = "popupButton" id="popupButton" type="button" value="Go To Class Page"></input></div>
+      </div>
 
-  <div class="popup-content">
-    <span class="close">&times;</span>
-    <div>Name: <div id = "modelName" style="display:inline;">Some text in the Modal..</div></div>
-    <div>Description: <div id = "modelDescription" style="display:inline;">Some text in the Modal..</div></div>
-    <div>Time: <div id = "modelTime" style="display:inline;">Some text in the Modal..</div></div>
-    <div id = "modelButtonDiv" style="text-align:center;margin-top: 10px;"><input class = "popupButton" id="popupButton" type="button" value="Go To Class Page"></input></div>
+    </div>
+    </body>
+    <script src="js/calendar.js">
+    </script>
   </div>
-
-</div>
-</body>
-<script src="js/calendar.js">
-</script>
+</section>
 </html>

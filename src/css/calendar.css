@@ -1,7 +1,10 @@
 * {box-sizing: border-box;}
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
-
+#calendarContainer{
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
 .month {
     padding: 70px 25px;
     width: 100%;
@@ -85,7 +88,7 @@ body {font-family: Verdana, sans-serif;}
     margin: 3px;
 }
 .days li .event_even:hover {
-    background: #33b530;
+    background: #32b530;
 }
 .days li .event_odd {
     width: 100%;
@@ -98,11 +101,12 @@ body {font-family: Verdana, sans-serif;}
 
 .days li .class_even {
     width: 100%;
-    background: #ff5538;
+    background: #c50000;
     margin: 3px;
+    color: white;
 }
 .days li .class_even:hover {
-    background: #d3462e;
+    background: #6e1e10;
 }
 .days li .class_odd {
     width: 100%;

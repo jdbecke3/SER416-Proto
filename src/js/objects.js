@@ -2,7 +2,7 @@
 console.log("Loaded Objects");
 jsonEvents = `[
     {
-        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "dateOfEvent":"2018-05-30T04:21:29.222Z",
         "description":"concert for all ages, ....",
         "name":"concert",
         "isPublic": true,
@@ -10,7 +10,7 @@ jsonEvents = `[
         "type" : "event"
     },    
     {
-        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "dateOfEvent":"2018-05-30T04:21:29.222Z",
         "description":"concert for all ages, ....",
         "name":"concert 2",
         "isPublic": true,
@@ -18,7 +18,7 @@ jsonEvents = `[
         "type" : "event"
     },    
     {
-        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "dateOfEvent":"2018-05-30T04:21:29.222Z",
         "description":"concert for all ages, ....",
         "name":"Yet Another Concert",
         "isPublic": true,
@@ -26,7 +26,7 @@ jsonEvents = `[
         "type" : "event"
     },
     {
-        "dateOfEvent":"2018-04-28T04:21:29.222Z",
+        "dateOfEvent":"2018-05-28T04:21:29.222Z",
         "description":"something something, ....",
         "name":"party for the partiers",
         "isPublic": true,
@@ -50,7 +50,7 @@ jsonEvents = `[
         "type" : "event"
     },
     {
-        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "dateOfEvent":"2018-05-30T04:21:29.222Z",
         "description": "Piano, Violin",
         "name":"Music Lessons",
         "isPublic": true,
@@ -60,7 +60,7 @@ jsonEvents = `[
         "type" : "class"
     },    
     {
-        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "dateOfEvent":"2018-05-30T04:21:29.222Z",
         "description":"Learn how to use your hands for things other then typing or texting.",
         "name":"Wood Workshop",
         "isPublic": true,
@@ -70,7 +70,7 @@ jsonEvents = `[
         "type" : "class"
     },    
     {
-        "dateOfEvent":"2018-04-30T04:21:29.222Z",
+        "dateOfEvent":"2018-05-30T04:21:29.222Z",
         "description":"This class with teach people how to come up with classes as example",
         "name":"This is a Class",
         "isPublic": true,
@@ -80,7 +80,7 @@ jsonEvents = `[
         "type" : "class"
     },
     {
-        "dateOfEvent":"2018-04-29T04:21:29.222Z",
+        "dateOfEvent":"2018-05-29T04:21:29.222Z",
         "description":"Everything Tech",
         "name":"Tech Workshop",
         "isPublic": true,
@@ -92,7 +92,7 @@ jsonEvents = `[
     {
         "dateOfEvent":"2018-05-5T04:21:29.222Z",
         "description":"Learn how to weave",
-        "name":"Basket Weeving",
+        "name":"Basket Weaving",
         "isPublic": true,
         "room" : "Room 2",
         "teacher" : "Ricky Boobie",

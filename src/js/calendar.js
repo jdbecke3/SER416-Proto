@@ -77,6 +77,9 @@ var modal = document.getElementById('myModal');
 var description = document.getElementById("modelDescription");
 var timeDiv = document.getElementById("modelTime");
 var buttonPopup = document.getElementById("popupButton");
+buttonPopup.addEventListener("click",function(evnt){
+    window.location.href = window.location.href.replace("calendar","event") + '?jsonEvent=' + JSON.stringify(evnt.target.selectedEvent);
+});
 var nameDiv = document.getElementById("modelName");
 
 // Get the <span> element that closes the modal
@@ -100,7 +103,7 @@ function openModel(element) {
     }else{
         buttonPopup.setAttribute("value", "Go To This Class Page");
     }
-    
+    buttonPopup.selectedEvent = element.event;
     modal.style.display = "block";
 }
 
