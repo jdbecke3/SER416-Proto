@@ -8,7 +8,6 @@
 		<title>Community Servic Event Planner</title>
 	</head>
 
-
 	<body>
 	
 		<header>
@@ -25,15 +24,25 @@
 		</header>
 		<section class="bodyContent">
 		
-		<div id="resInputs">
-			<input type="text" class="inputBtnSet1" id="startDate" value="" placeholder="Start Date"/>
-			<input type="text" class="inputBtnSet1" id="endDate" value="" placeholder="End Date"/>
-			<input type="text" class="inputBtnSet1" id="startTime" value="" placeholder="Start Time"/>
-			<input type="text" class="inputBtnSet1" id="endTime" value="" placeholder="End Time"/>
-			<input type="text" class="inputBtnSet1" id="category" value="" placeholder="Category"/>			
-		</div>
 		
+		<!-- TODO: 
+			- Set disabled and sequentially enable as user enters details after input-validation confirms good. 
+			- set required
+			- Change input-types to match appropriate types
+				- For Dates, use datetime and parse as Date object for JavaScript
+		-->
+		<form id="form">
+		<div id="resInputs"> 
+			Start Date & Time:<span style="width: 10%; display:inline-block;"></span>
+			End Date & Time<br/>
+			<input type="datetime-local" class="inputBtnSet1" id="startDate" value="" title="Enter Start Date & Time For Event" placeholder="Start Date" required/>
+			<input type="datetime-local" class="inputBtnSet1" id="endDate" value="" placeholder="End Date" required/><br/>
+			<!--<input type="text" class="inputBtnSet1" id="startTime" value="" placeholder="Start Time"/>
+			<input type="text" class="inputBtnSet1" id="endTime" value="" placeholder="End Time"/> -->
+			<input type="text" class="inputBtnSet1" id="category" value="" placeholder="Category"/>		
+			<input type="submit" id="submitBtn" value="Submit"></input>
 		</div>
+		</form>
 		
 		<div id="reservationWrapper">
 			<svg

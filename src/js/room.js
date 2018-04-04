@@ -10,6 +10,8 @@
 *To Test: Launch home.html, enter console and enter: var roomMap = RoomManager() and test by entering a key of any room, say, `roomMap['rmA'];` -- Note will change to class later. 
 */
 
+var formID = document.getElementById("form");
+document.getElementById("submitBtn").addEventListener("click", function(event) {event.preventDefault(); if(formID.checkValidity()){testFunc();} else {alert("Invalid Form");} });
 
 // Integrate as Class 
 function Room(roomID, isAvailable) {
@@ -17,8 +19,7 @@ function Room(roomID, isAvailable) {
 	this.roomID = roomID;
 	this.isAvailable = false;
 	this.availableItems = {}; // For implementing equipment availability in certain rooms. 
-	
-	
+
 }
 
 // Integrate as Class 
@@ -36,6 +37,18 @@ function RoomManager () {
 	}
 	
 	return roomMap;
+}
+
+function testFunc() {
+
+	var startDate = document.getElementById("startDate");
+	var endDate = document.getElementById("endDate");
+
+	var startDateObj = new Date(startDate.value);
+	var endDateObj = new Date(endDate.value);
+	
+	alert("Start Date Obj:"+ startDateObj + "\n\n" + "End Date Obj: " + endDateObj);
+	
 }
 
 // Likely Antiquated helper function
