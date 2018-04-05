@@ -155,6 +155,9 @@ class Calendar{
         this.year = year;
         this.date = new Date(year, month - 1, 1);
         this.events = getEvents();
+		if(Calendar.prototype.calendarReference == null){
+			Calendar.prototype.calendarReference = this;
+		}
 
     }
     getFirstDay(){
@@ -169,7 +172,7 @@ class Calendar{
     getCurrentMonth(){
         return (new Date()).getMonth();
     }
-    getMonthName(month = 0){
+    getMonthName(month = 0){ // Why is this = 0? Will always return Janaury.
         return this.MONTH_NAMES[month];
     }
     getEventOnDay(day){

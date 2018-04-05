@@ -11,7 +11,12 @@
 */
 
 var formID = document.getElementById("form");
-document.getElementById("submitBtn").addEventListener("click", function(event) {event.preventDefault(); if(formID.checkValidity()){testFunc();} else {alert("Invalid Form");} });
+
+/* preventDefault prevents the normal POST operation from the button submit from working.
+   Otherwise the built-in form validation wouldn't work if we went with a regular button submit.
+   Call handling method from within anonymous function.
+*/
+document.getElementById("submitBtn").addEventListener("click", function(event) {event.preventDefault(); if(formID.checkValidity()){setRoomAvailability();} else {alert("Invalid Form");} });
 
 // Integrate as Class 
 function Room(roomID, isAvailable) {
@@ -39,16 +44,25 @@ function RoomManager () {
 	return roomMap;
 }
 
-function testFunc() {
+function setRoomAvailability() {
 
-	var startDate = document.getElementById("startDate");
-	var endDate = document.getElementById("endDate");
-
-	var startDateObj = new Date(startDate.value);
-	var endDateObj = new Date(endDate.value);
+	// Migrate this function to core.js I think?
+	// Fetch new Calendar instance for year/month of requested new event. 
+	// Get events from day. 
+	// Compare start/end times of events versus new event
+	// alter room availability (disabling room, coloring red, etc.)
+	let startDate = document.getElementById("startDate");
+	let endDate = document.getElementById("endDate");	
+	let startDateObj = new Date(startDate.value);
+	let endDateObj = new Date(endDate.value);	
+	console.log(startDateObj.getFullYear());
+	console.log(startDateObj.getMonth());
+	let calendar = new Calendar(startDateObj.getFullYear(), startDateObj.getMonth()+1);
+	console.log(calendar.getEventOnDay(10));
 	
 	alert("Start Date Obj:"+ startDateObj + "\n\n" + "End Date Obj: " + endDateObj);
 	
+	return calendar; // For console test purposes
 }
 
 // Likely Antiquated helper function
