@@ -46,6 +46,7 @@ function RoomManager () {
 
 function setRoomAvailability() {
 
+	// TODO: Add validation for when endDate < startDate, etc.
 	// Migrate this function to core.js I think?
 	// Fetch new Calendar instance for year/month of requested new event. 
 	// Get events from day. 
@@ -57,9 +58,55 @@ function setRoomAvailability() {
 	let endDateObj = new Date(endDate.value);	
 	console.log(startDateObj.getFullYear());
 	console.log(startDateObj.getMonth());
-	let calendar = new Calendar(startDateObj.getFullYear(), startDateObj.getMonth()+1);
-	console.log(calendar.getEventOnDay(10));
+	console.log(startDateObj.getDate());
 	
+	let calendar = new Calendar(startDateObj.getFullYear(), startDateObj.getMonth());
+	console.log(calendar.getEventOnDay(29));
+	
+	// Parse JSON. iterate through json.dateOfEvent for each event, fetch startTime and endTime and perform comparisons to see if it's okay
+	let parsedEvents = calendar.getEventOnDay(startDateObj.getDate());
+	console.log("TEST:"+calendar.getEventOnDay(startDateObj.getDate()));
+	//console.log(parsedEvents[0].dateOfEvent);
+	
+	// If there is a conflict, Red/lock the room. 
+	/*
+		`if newEndTime > existingEventStartTime && newEndTime < existingEventEndTime`
+		`if newStartTime > existingEventStartTime && newStartTime < existingEventEndTime`
+		`if newStartTime < existingStartTime && newEndTime > existingEventStartTime`
+		`if newStartTime === newEndtime`....
+	*/
+	let hasConflict = false;
+	
+	for(var i=0;i<parsedEvents.length;i++){
+		let existingStart = new Date(parsedEvents[i].dateOfEvent);
+		let existingEnd = new Date(parsedEvents[i].dateOfEvent);
+		existingEnd.setHours(existingEnd.getHours()+1);
+		console.log(existingStart + " " + existingEnd);
+		
+		alert("Testing: " + startDateObj + " end "+ endDateObj + "\n\n Against: \n\n" + existingStart + " endold " + existingEnd); 
+		
+		if(endDateObj.getTime() > existingStart && endDateObj.getTime() < existingEnd){
+			hasConflict = true;
+			alert("Conflict 1!");
+			
+		} 
+		else if (startDateObj.getTime() > existingStart && startDateObj.getTime() < existingEnd){
+			hasConflict = true;
+			alert("Conflict 2!");
+			
+		}
+		else if (startDateObj.getTime() < existingStart && endDateObj.getTime() > existingStart){
+			hasConflict = true;
+			alert("Conflict 3!");
+		}
+		else {
+			alert("No conflict");
+		}
+		
+		// TODO: IF any conflict, block room associated with the existing event.
+		
+	}
+			
 	alert("Start Date Obj:"+ startDateObj + "\n\n" + "End Date Obj: " + endDateObj);
 	
 	return calendar; // For console test purposes

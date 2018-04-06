@@ -139,7 +139,7 @@ class Calendar{
     constructor(year = 1970, month = 0){
         this.DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         this.MONTH_NAMES = new Array();
-        this.MONTH_NAMES[0] = "January";
+        //this.MONTH_NAMES[0] = "January";
         this.MONTH_NAMES[1] = "February";
         this.MONTH_NAMES[2] = "March";
         this.MONTH_NAMES[3] = "April";
@@ -151,6 +151,7 @@ class Calendar{
         this.MONTH_NAMES[9] = "October";
         this.MONTH_NAMES[10] = "November";
         this.MONTH_NAMES[11] = "December";
+        this.MONTH_NAMES[12] = "January";		
         this.month = month;
         this.year = year;
         this.date = new Date(year, month - 1, 1);

@@ -7,7 +7,7 @@ function updateCalendar(){
     var currentDay = cal.getCurrentDay();
     var currentMonth = cal.getCurrentMonth() + 1;
     var currentSelectedMonthElement = document.getElementById("currentSelectedMonth");
-    currentSelectedMonthElement.innerHTML = cal.getMonthName(cal.month-1) + "<br><span style='font-size:18px'>"+cal.year+"</span>";
+    currentSelectedMonthElement.innerHTML = cal.getMonthName(cal.month) + "<br><span style='font-size:18px'>"+cal.year+"</span>";
     var numberOfDays = cal.getMonthLength();
     daysUL.innerHTML = "";
     for(var dayNumber = 1; dayNumber <= numberOfDays; dayNumber++){
