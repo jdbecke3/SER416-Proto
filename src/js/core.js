@@ -33,18 +33,21 @@ rmB.addEventListener("mouseover", onHover, false);
 rmB.addEventListener("mouseout", offHover, false);
 
 
+/*Alternative method if needing to pass args in EventListeners below, but downside is you can't remove the action listener because function is anonymous*/
+//rmA.addEventListener("click", (event) => {processEvent(event);}, false); 
+
 /*############ OnClick Events ################*/
-rmA.addEventListener("click", (event) => {processEvent(event);}, false);
-rmAText.addEventListener("click", (event) => {processEvent(event);}, false);
+rmA.addEventListener("click", processEvent, false);
+rmAText.addEventListener("click", processEvent, false);
 
-rmB.addEventListener("click", (event) => {processEvent(event);}, false);
-rmBText.addEventListener("click", (event) => {processEvent(event);}, false);
+rmB.addEventListener("click", processEvent, false);
+rmBText.addEventListener("click", processEvent, false);
 
-rmC.addEventListener("click", (event) => {processEvent(event);}, false);
-rmCText.addEventListener("click", (event) => {processEvent(event);}, false);
+rmC.addEventListener("click", processEvent, false);
+rmCText.addEventListener("click", processEvent, false);
 
-rmX.addEventListener("click", (event) => {processEvent(event);}, false);
-rmXText.addEventListener("click", (event) => {processEvent(event);}, false);
+rmX.addEventListener("click", processEvent, false);
+rmXText.addEventListener("click", processEvent, false);
 
 for(var i=1;i<=4;i++){
 	
@@ -53,21 +56,21 @@ for(var i=1;i<=4;i++){
 	let refY = document.getElementById("rmY"+i);
 	let refZ = document.getElementById("rmZ"+i);
 	
-	refZ.addEventListener("click", (event) => {processEvent(event);}, false);		
-	refZText.addEventListener("click", (event) => {processEvent(event);}, false);
+	refZ.addEventListener("click", processEvent, false);		
+	refZText.addEventListener("click", processEvent, false);
 
-	refZText.addEventListener("mouseover", (event) => {onHover(event);}, false);
-	refZText.addEventListener("mouseout", (event) => {offHover(event);}, false);
-	refZ.addEventListener("mouseover", (event) => {onHover(event);}, false);
-	refZ.addEventListener("mouseout", (event) => {offHover(event);}, false);	
+	refZText.addEventListener("mouseover", onHover, false);
+	refZText.addEventListener("mouseout", offHover, false);
+	refZ.addEventListener("mouseover", onHover, false);
+	refZ.addEventListener("mouseout", offHover, false);	
 	
-	refY.addEventListener("click", (event) => {processEvent(event);}, false);
-	refYText.addEventListener("click", (event) => {processEvent(event);}, false);
+	refY.addEventListener("click", processEvent, false);
+	refYText.addEventListener("click", processEvent, false);
 	
-	refY.addEventListener("mouseover", (event) => {onHover(event);}, false);
-	refY.addEventListener("mouseout", (event) => {offHover(event);}, false);
-	refYText.addEventListener("mouseover", (event) => {onHover(event);}, false);
-	refYText.addEventListener("mouseout", (event) => {offHover(event);}, false);	
+	refY.addEventListener("mouseover", onHover, false);
+	refY.addEventListener("mouseout", offHover, false);
+	refYText.addEventListener("mouseover", onHover, false);
+	refYText.addEventListener("mouseout", offHover, false);	
 }
 
 //(event) => {processEvent(event);}
@@ -120,7 +123,7 @@ function offHover (evt) {
 }
 
 function processEvent(eventObj) {
-	
+	eventObj = window.event;
 	alert("ROOM ID: " + eventObj.target.id + "\n\nClicking would prompt a details dialog box to appear for completing the task...");
 	let refId = eventObj.target.id;
 	let isText = refId.indexOf("Text");

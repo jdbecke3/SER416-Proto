@@ -103,6 +103,10 @@ function setRoomAvailability() {
 			alert("No conflict");
 		}
 		
+		if(hasConflict) {
+			setRoomRed(parsedEvents[i]);
+		}
+		
 		// TODO: IF any conflict, block room associated with the existing event.
 		
 	}
@@ -110,6 +114,23 @@ function setRoomAvailability() {
 	alert("Start Date Obj:"+ startDateObj + "\n\n" + "End Date Obj: " + endDateObj);
 	
 	return calendar; // For console test purposes
+}
+
+function setRoomRed(eventObj) {
+
+	let room = document.getElementById(eventObj.room);
+	let roomText = document.getElementById(eventObj.room+"Text");
+	room.style.fill = "red";
+	
+	room.removeEventListener("mouseover", onHover);
+	room.removeEventListener("mouseout", offHover);
+	
+	roomText.removeEventListener("mouseover", onHover);
+	roomText.removeEventListener("mouseout", offHover);
+	
+	room.removeEventListener("click", processEvent);
+	roomText.removeEventListener("click", processEvent);	
+	
 }
 
 // Likely Antiquated helper function

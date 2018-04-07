@@ -3,108 +3,120 @@ console.log("Loaded Objects");
 jsonEvents = `[
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",
         "description":"concert for all ages, ....",
         "name":"concert",
         "isPublic": true,
-        "room" : "Concert Hall",
+        "room" : "rmA",
         "type" : "event"
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"concert for all ages, ....",
         "name":"concert 2",
         "isPublic": true,
-        "room" : "Concert Hall",
+        "room" : "rmA",
         "type" : "event"
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"concert for all ages, ....",
         "name":"Yet Another Concert",
         "isPublic": true,
-        "room" : "Concert Hall",
+        "room" : "rmB",
         "type" : "event"
     },
     {
         "dateOfEvent":"2018-05-28T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"something something, ....",
         "name":"party for the partiers",
         "isPublic": true,
-        "room" : "Party Room",
+        "room" : "rmC",
         "type" : "event"
     },
     {
         "dateOfEvent":"2018-05-16T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"why cant I think of any events, ....",
         "name":"I am at a loss",
         "isPublic": true,
-        "room" : "Basement",
+        "room" : "rmX",
         "type" : "event"
     },
     {
         "dateOfEvent":"2018-05-16T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"why cant I think of any events, ....",
         "name":"I am at a loss #2",
         "isPublic": true,
-        "room" : "Basement",
+        "room" : "rmY2",
         "type" : "event"
     },
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",
         "description": "Piano, Violin",
         "name":"Music Lessons",
         "isPublic": true,
-        "room" : "Room 1",
+        "room" : "rmZ3",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
         "type" : "class"
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"Learn how to use your hands for things other then typing or texting.",
         "name":"Wood Workshop",
         "isPublic": true,
-        "room" : "Concert Hall",
+        "room" : "rmY3",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
         "type" : "class"
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"This class with teach people how to come up with classes as example",
         "name":"This is a Class",
         "isPublic": true,
-        "room" : "Room 1",
+        "room" : "rmZ4",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
         "type" : "class"
     },
     {
         "dateOfEvent":"2018-05-29T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"Everything Tech",
         "name":"Tech Workshop",
         "isPublic": true,
-        "room" : "Room 1",
+        "room" : "rmB",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
         "type" : "class"
     },
     {
         "dateOfEvent":"2018-05-5T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"Learn how to weave",
         "name":"Basket Weaving",
         "isPublic": true,
-        "room" : "Room 2",
+        "room" : "rmC",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
         "type" : "class"
     },
     {
         "dateOfEvent":"2018-05-11T04:21:29.222Z",
+        "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"why cant I think of any events, ....",
         "name":"spanish Lessons",
         "isPublic": true,
-        "room" : "Room 2",
+        "room" : "rmC",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
         "type" : "class"
