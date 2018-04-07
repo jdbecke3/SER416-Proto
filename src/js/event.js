@@ -12,6 +12,16 @@ function getURLParams(name){
    if(num>=0) return url.substr(0,num); 
    if(num<0)  return url;             
   }
+  function formatDate(date){
+    var time = "am";
+    var h = date.getHours();
+    if(h > 12){
+        time = "pm";
+        h = h-12;
+    }
+    return date.getDate()+"/"+date.getMonth() + " " + h + ":" + date.getMinutes() + " " + time
+  }
+
 function startEventPageJS(){
     var eventCont = document.getElementById("eventContainer");
     var eventNameDiv = document.getElementById("eventName");
@@ -24,7 +34,10 @@ function startEventPageJS(){
     var event = JSON.parse(jsonEvent);
     eventNameDiv.innerHTML = event.name;
     eventDescDiv.innerHTML = event.description;
-    eventStartTimeDiv.innerHTML = event.dateOfEvent;
+    var startDate = new Date(event.dateOfEvent);
+    var cal = new Calendar(2018,startDate.getDay());
+    
+    eventStartTimeDiv.innerHTML = formatDate(startDate);
 }
 
 startEventPageJS();

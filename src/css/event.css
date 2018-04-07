@@ -1,0 +1,17 @@
+
+.dataDiv{
+    display:inline;
+}
+.table{
+    width:100%;
+}
+.tableHeader{
+    width: 33%;
+}
+.full{
+    width: 100%;
+}
+#footer{
+    margin-top: 30px;
+    margin-bottom: 15px;
+}

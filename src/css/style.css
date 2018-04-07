@@ -9,7 +9,9 @@ header {
 
 
 }
-
+.center{
+	text-align: center;
+}
 header h1 {
 
 	border-radius: 20px;
@@ -133,12 +135,12 @@ nav ul li a {
 	max-height: 25px;
 	text-decoration: none;
 	color: #87CEFF;
-	//-webkit-transition: font-size: .5s;
+	/*-webkit-transition: font-size: .5s;
 	//-moz-transition: font-size .5s;
 	//-o-transition: font-size .5s;
 	//transition: font-size .5s;
 	//-moz-transition: color .75s;	
-	-webkit-transition: color .75s;	
+	-webkit-transition: color .75s;*/
 	transition: color .75s;	
 	margin: auto;
 	text-align: center;
@@ -148,7 +150,6 @@ nav ul li a {
 }
 
 nav ul li a:hover{
-	//font-size: 115%;
 	color: white;
 	max-height: 25px;
 	
@@ -160,6 +161,6 @@ nav ul li a:hover{
 	font-size: 1.2em;
 	padding-left: 5%;
 	padding-right:5%;
-
+	margin-bottom: 15px;
 }
 

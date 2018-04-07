@@ -5,6 +5,7 @@
 -->
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/event.css">
 		<title>Community Servic Event Planner</title>
 	</head>
 
@@ -24,11 +25,31 @@
 		</header>
         <section class="bodyContent">
             <div id="eventContainer">
-                <div id= "eventName">Missing Json Data</div>
-                <div id= "eventDesc">Missing Json Data</div>
-                <div id= "eventStartTime">Missing Json Data</div>
-                <div id= "eventEndTime">Missing Json Data</div>
-            </div>
+				<section id="dataSection">
+					<table id="dataTable" class="table">
+						<tr>
+							<th class ="tableHeader">Name</th>
+							<th class ="tableHeader">Start Time</th>
+							<th class ="tableHeader">End Time</th>
+						</tr>
+						<tr>
+							<td id= "eventName" class="center"></td>
+							<td id= "eventStartTime" class="center"></td>
+							<td id= "eventEndTime" class="center"></td>
+						</tr>
+					</table>
+					<table id="descTable" class="table">
+							<tr>
+								<th class ="tableHeader full">Description</th>
+							</tr>
+							<tr>
+								<td id= "eventDesc" class="center"></td>
+							</tr>
+						</table>
+					<div id="footer" class="full center"><input type="button" value="Attend"></input></div>
+				</section>
+			</div>
+			<script src="./js/objects.js" type="text/javascript"></script>
             <script src="js/event.js"></script>
         </section>
     </body>
