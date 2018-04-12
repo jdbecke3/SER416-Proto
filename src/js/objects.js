@@ -122,29 +122,100 @@ jsonEvents = `[
         "type" : "class"
     }
 ]`;
+
+var jsonUsers =`[{
+                    "name":"Joe",
+                    "email":"j@j.com",
+                    "password":"123",
+                    "type":"User"
+                },{
+                    "name":"Sam",
+                    "email":"s@s.com",
+                    "password":"123",
+                    "type":"Admin"
+                }]`;
+
+class User{
+    constructor(user = null, name = "", email ="", password = "", type = "User"){
+        if(user != null){
+            this.email = user.email;
+            this.name = user.name;
+            this.password = user.password;
+            this.type = user.type;
+        }else{
+            this.name = name;
+            this.email = email;
+            this.password = password;
+            this.type = type;
+        }
+    }
+}
+
+class BackEnd{
+    constructor(users = null){
+        this.users = [];
+        if(users == null){
+            if(window.localStorage.getItem("Users") != null){
+                this.users = JSON.parse(window.localStorage.getItem("Users"));
+            }else{
+                var fromJson = JSON.parse(jsonUsers);
+                for(var index in fromJson){
+                    this.users[index] = new User(fromJson[index]);
+                    window.localStorage.setItem("Users", JSON.stringify(this.users));
+                }
+            }
+        }else{
+            this.users = users;
+        }
+    }
+    register(name,email,password){
+        var allUsers = JSON.parse(window.localStorage.getItem("Users"));
+        for(var index in allUsers){
+            this.users[index] = new User(allUsers[index]);
+        }
+        this.users[this.users.length] = new User(null,name, email,password);
+        window.localStorage.setItem("Users", JSON.stringify(this.users));
+    }
+    login(name,password){
+        var user = this.getUser(name);
+        if(user){
+            if(user.password == password){
+                window.sessionStorage.setItem("CurrentUser",JSON.stringify(user));
+                return true;
+            }
+        }
+        return false;
+    }
+    logout(){
+        window.sessionStorage.removeItem("CurrentUser");
+    }
+    getCurrentUser(){
+        var user = JSON.parse(window.sessionStorage.getItem("CurrentUser"));
+        return new User(user);
+    }
+    isLoggedIn(){
+        return window.sessionStorage.getItem("CurrentUser") != null;
+    }
+    isUserAdmin(){
+        if(this.isLoggedIn()){
+            var user = this.getCurrentUser();
+            return user.type == "Admin";
+        }
+        return false;
+    }
+    getUser(name){
+        for(var index in this.users){
+            if(this.users[index].name == name){
+                return new User(this.users[index]);
+            }
+        }
+    }
+}
+
 function getEvents(){
     var events = JSON.parse(jsonEvents);
     //console.log(JSON.stringify(events[0]));
     return events;
-}
-class ObjEvent{
-    constructor(name = "unknown",description = "",dateOfEvent = new Date()){
-        this.dateOfEvent = dateOfEvent;
-        this.description = description;
-        this.name = name;
-        this.isPublic = true;
-        this.room = "unkown"; // Room object Reference?
-    }
-	
-	/* TODO: Ensure following is integrated in Event Object
-	this.startDate = startDate;
-	this.endDate = endDate; 
-	this.category = category;
-	this.title = "";
-	this.description = "";
-	this.type = ""; // Class/Event
-	this.category ""; // Broader selection of event category. 
-	*/
 }
 
 class Calendar{
