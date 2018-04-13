@@ -200,7 +200,10 @@ class Persistence{
             this.users = users;
         }
     }
-    eventRegistration(userName,eventName){
+    registerEvent(event){
+        
+    }
+    userEventRegistration(userName,eventName){
         var events = getEvents();
         if(events){
             for(var index in events){
