@@ -8,7 +8,8 @@ jsonEvents = `[
         "name":"concert",
         "isPublic": true,
         "room" : "rmA",
-        "type" : "event"
+        "type" : "event",
+        "attending": []
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
@@ -17,7 +18,8 @@ jsonEvents = `[
         "name":"concert 2",
         "isPublic": true,
         "room" : "rmA",
-        "type" : "event"
+        "type" : "event",
+        "attending": []
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
@@ -26,7 +28,8 @@ jsonEvents = `[
         "name":"Yet Another Concert",
         "isPublic": true,
         "room" : "rmB",
-        "type" : "event"
+        "type" : "event",
+        "attending": []
     },
     {
         "dateOfEvent":"2018-05-28T04:21:29.222Z",
@@ -35,7 +38,8 @@ jsonEvents = `[
         "name":"party for the partiers",
         "isPublic": true,
         "room" : "rmC",
-        "type" : "event"
+        "type" : "event",
+        "attending": []
     },
     {
         "dateOfEvent":"2018-05-16T04:21:29.222Z",
@@ -44,7 +48,8 @@ jsonEvents = `[
         "name":"I am at a loss",
         "isPublic": true,
         "room" : "rmX",
-        "type" : "event"
+        "type" : "event",
+        "attending": []
     },
     {
         "dateOfEvent":"2018-05-16T04:21:29.222Z",
@@ -53,7 +58,8 @@ jsonEvents = `[
         "name":"I am at a loss #2",
         "isPublic": true,
         "room" : "rmY2",
-        "type" : "event"
+        "type" : "event",
+        "attending": []
     },
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
@@ -64,7 +70,8 @@ jsonEvents = `[
         "room" : "rmZ3",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
-        "type" : "class"
+        "type" : "class",
+        "attending": []
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
@@ -75,7 +82,8 @@ jsonEvents = `[
         "room" : "rmY3",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
-        "type" : "class"
+        "type" : "class",
+        "attending": []
     },    
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
@@ -86,7 +94,8 @@ jsonEvents = `[
         "room" : "rmZ4",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
-        "type" : "class"
+        "type" : "class",
+        "attending": []
     },
     {
         "dateOfEvent":"2018-05-29T04:21:29.222Z",
@@ -97,7 +106,8 @@ jsonEvents = `[
         "room" : "rmB",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
-        "type" : "class"
+        "type" : "class",
+        "attending": []
     },
     {
         "dateOfEvent":"2018-05-5T04:21:29.222Z",
@@ -108,7 +118,8 @@ jsonEvents = `[
         "room" : "rmC",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
-        "type" : "class"
+        "type" : "class",
+        "attending": []
     },
     {
         "dateOfEvent":"2018-05-11T04:21:29.222Z",
@@ -119,7 +130,8 @@ jsonEvents = `[
         "room" : "rmC",
         "teacher" : "Ricky Boobie",
         "max_students" : 50,
-        "type" : "class"
+        "type" : "class",
+        "attending": []
     }
 ]`;
 
@@ -127,31 +139,51 @@ var jsonUsers =`[{
                     "name":"Joe",
                     "email":"j@j.com",
                     "password":"123",
-                    "type":"User"
+                    "type":"User",
+                    "attending":["spanish Lessons","Basket Weaving"]
                 },{
                     "name":"Sam",
                     "email":"s@s.com",
                     "password":"123",
-                    "type":"Admin"
+                    "type":"Admin",
+                    "attending":[]
                 }]`;
 
+function getEvents(){
+    var events = null;
+    window.localStorage.setItem("Events",JSON.stringify(events));
+    if(window.localStorage.getItem("Events") == null){
+        events = JSON.parse(window.localStorage.getItem("Events"));
+    }else{
+        events = JSON.parse(jsonEvents);
+        window.localStorage.setItem("Events",JSON.stringify(events));
+    }
+    return events;
+}
+function saveEvents(events){
+    window.localStorage.setItem("Events",JSON.stringify(events));
+}
+
+
 class User{
-    constructor(user = null, name = "", email ="", password = "", type = "User"){
+    constructor(user = null, name = "", email ="", password = "", type = "User",attending=[]){
         if(user != null){
             this.email = user.email;
             this.name = user.name;
             this.password = user.password;
             this.type = user.type;
+            this.attending = user.attending;
         }else{
             this.name = name;
             this.email = email;
             this.password = password;
             this.type = type;
+            this.attending =attending;
         }
     }
 }
 
-class BackEnd{
+class Persistence{
     constructor(users = null){
         this.users = [];
         if(users == null){
@@ -167,6 +199,20 @@ class BackEnd{
         }else{
             this.users = users;
         }
+    }
+    eventRegistration(userName,eventName){
+        var events = getEvents();
+        if(events){
+            for(var index in events){
+                if(events[index].name == eventName){
+                    events[index].attending[events[index].attending.length] = userName;
+                    var userIndex = getUserIndex(userName);
+                    this.users[userIndex].attending[this.users[userIndex].attending.length] = eventName;
+                }
+            }
+        }
+        window.localStorage.setItem("Users", JSON.stringify(this.users));
+        window.localStorage.setItem("Events", JSON.stringify(events));
     }
     register(name,email,password){
         var allUsers = JSON.parse(window.localStorage.getItem("Users"));
@@ -210,12 +256,25 @@ class BackEnd{
             }
         }
     }
+    getUserIndex(name){
+        for(var index in this.users){
+            if(this.users[index].name == name){
+                return index;
+            }
+        }
+    }
 }
+class ObjEvent{
+    constructor(name = "unknown",description = "",dateOfEvent = new Date(), endOfEvent = new Date(), attending = [], type = "event", room = ""){
+        this.dateOfEvent = dateOfEvent;
+        this.description = description;
+        this.name = name;
+        this.isPublic = true;
+        this.room = room;
+        this.endOfEvent = endOfEvent;
+        this.attending = attending;
 
-function getEvents(){
-    var events = JSON.parse(jsonEvents);
-    //console.log(JSON.stringify(events[0]));
-    return events;
+    }
 }
 
 class Calendar{
@@ -238,7 +297,6 @@ class Calendar{
         this.month = month;
         this.year = year;
         this.date = new Date(year, month - 1, 1);
-        this.events = getEvents();
 		if(Calendar.prototype.calendarReference == null){
 			Calendar.prototype.calendarReference = this;
 		}
@@ -263,12 +321,16 @@ class Calendar{
         var dayEvents = new Array();
         var indexOf = 0;
         for(var index in this.events){
-            var date = new Date(this.events[index].dateOfEvent);
+            var events = getEvents();
+            var date = new Date(events[index].dateOfEvent);
             if(day == date.getDate() && this.year == date.getFullYear() && this.month == date.getMonth()){
-                dayEvents[indexOf] = this.events[index];
+                dayEvents[indexOf] = events[index];
                 indexOf++;
             }
         }
         return dayEvents;
+    }
+    getAllEvents(){
+        return getEvents();
     }
 }
