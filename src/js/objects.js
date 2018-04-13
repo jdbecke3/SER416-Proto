@@ -164,7 +164,6 @@ function saveEvents(events){
     window.localStorage.setItem("Events",JSON.stringify(events));
 }
 
-
 class User{
     constructor(user = null, name = "", email ="", password = "", type = "User",attending=[]){
         if(user != null){
@@ -200,9 +199,20 @@ class Persistence{
             this.users = users;
         }
     }
+    /**
+     * Adds the Event to the list and save it.
+     * @param {ObjEvent} event 
+     */
     registerEvent(event){
-        
+        var events = getEvents();
+        events[events.length] = event;
+        saveEvents(events);
     }
+    /**
+     * Addeds the attendence of the user and event. saves it.
+     * @param {String} userName 
+     * @param {String} eventName 
+     */
     userEventRegistration(userName,eventName){
         var events = getEvents();
         if(events){
@@ -217,7 +227,13 @@ class Persistence{
         window.localStorage.setItem("Users", JSON.stringify(this.users));
         window.localStorage.setItem("Events", JSON.stringify(events));
     }
-    register(name,email,password){
+    /**
+     * creates a user, adds it to the list, saves the list.
+     * @param {String} name 
+     * @param {String} email 
+     * @param {String} password 
+     */
+    registerUser(name,email,password){
         var allUsers = JSON.parse(window.localStorage.getItem("Users"));
         for(var index in allUsers){
             this.users[index] = new User(allUsers[index]);
@@ -225,6 +241,11 @@ class Persistence{
         this.users[this.users.length] = new User(null,name, email,password);
         window.localStorage.setItem("Users", JSON.stringify(this.users));
     }
+    /**
+     * logs the user in if the passowrd is correct and the user is found.
+     * @param {String} name 
+     * @param {String} password 
+     */
     login(name,password){
         var user = this.getUser(name);
         if(user){
@@ -235,13 +256,20 @@ class Persistence{
         }
         return false;
     }
+    /**
+     * logs the user out.
+     */
     logout(){
         window.sessionStorage.removeItem("CurrentUser");
     }
+    /**
+     * returns a User if the user is logged in.
+     */
     getCurrentUser(){
         var user = JSON.parse(window.sessionStorage.getItem("CurrentUser"));
         return new User(user);
     }
+
     isLoggedIn(){
         return window.sessionStorage.getItem("CurrentUser") != null;
     }
@@ -252,6 +280,10 @@ class Persistence{
         }
         return false;
     }
+    /**
+     * gets the user by its name.
+     * @param {String} name 
+     */
     getUser(name){
         for(var index in this.users){
             if(this.users[index].name == name){
@@ -276,7 +308,6 @@ class ObjEvent{
         this.room = room;
         this.endOfEvent = endOfEvent;
         this.attending = attending;
-
     }
 }
 
