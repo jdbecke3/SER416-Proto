@@ -38,7 +38,7 @@ body {
 	box-shadow: 5px 5px 15px black;
 	margin: auto;
 	margin-top: 5px;
-	
+
 	width: 100%;
 }
 
@@ -71,16 +71,16 @@ body {
 }
 
 #bath {
-	
+
 	fill: black;
-	
+
 }
 
 /*#rmAText:hover {
 
 	//fill: #b3ffb3 !important;
 	pointer-events: none !important;
-	
+
 	}*/
 
 
@@ -97,7 +97,7 @@ nav {
 	padding-bottom: 10px;
 	border-top: 2px, white;
 	max-height: 70px;
-	
+
 }
 
 nav ul {
@@ -105,21 +105,21 @@ nav ul {
 	list-style: none;
 	width: 100%;
 	font-weight: bold;
-	font-size: 1.5em;
+	font-size: 1em;
 	text-align: center;
 	padding: 0;
-	padding-top:5px;
+	padding-top:1em;
 	padding-bottom: 5px;
 	margin: 0 auto;
 	max-height: 25px;
-	
+
 }
 
 nav ul li {
 
 	display: inline-block;
 	color: #87CEFF;
-	width: 17%;
+	padding: 1em;
 	margin: auto;
 	max-height: 25px;
 
@@ -133,9 +133,9 @@ nav ul li a {
 	//-moz-transition: font-size .5s;
 	//-o-transition: font-size .5s;
 	//transition: font-size .5s;
-	//-moz-transition: color .75s;	
+	//-moz-transition: color .75s;
 	-webkit-transition: color .75s;*/
-	transition: color .75s;	
+	transition: color .75s;
 	margin: auto;
 	text-align: center;
 	margin-top: 25px;
@@ -146,7 +146,7 @@ nav ul li a {
 nav ul li a:hover{
 	color: white;
 	max-height: 25px;
-	
+
 }
 
 
@@ -157,4 +157,3 @@ nav ul li a:hover{
 	padding-right:5%;
 	margin-bottom: 15px;
 }
-

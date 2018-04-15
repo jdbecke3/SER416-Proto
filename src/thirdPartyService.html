@@ -5,8 +5,8 @@
 -->
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-		<link rel="stylesheet" type="text/css" href="./css/volunteer.css">
-		<title>Community Servic Event Planner</title>
+		<link rel="stylesheet" type="text/css" href="./css/thirdPartyService.css">
+		<title>Community Serviec Event Planner</title>
 	</head>
 
 
@@ -19,45 +19,45 @@
 					<li><a href src="./planner.html">Host</a></li>
 					<li><a href src="./classes.html">Classes</a></li>
 					<li><a href="volunteer.html" src="./volunteer.html">Volunteer</a></li>
-					<li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
-
+          <li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
 					<li><a href src="./donate.html">Donate</a></li>
 				</ul>
 			</nav>
 		</header>
         <section class="bodyContent">
-          <h1> Volunteer Yay! </h1>
-					<img src="http://i.cdn.travel.cnn.com/sites/default/files/styles/article_large/public/2011/07/21/Volunteer_main.jpg?itok=K8sW7ze9">
+          <h1> 3rd Party Service Yay! </h1>
+					<img src="https://i.ytimg.com/vi/fhevmoGb7vU/hqdefault.jpg">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, elit id ultrices laoreet, massa orci posuere diam, vulputate ultrices libero nibh vitae leo. Nam ultrices nisi ante, vel interdum ipsum facilisis pellentesque. Curabitur placerat tincidunt iaculis. Quisque ac consequat lectus. Donec ornare commodo nibh et pharetra. Nulla facilisi. Nulla eu dapibus turpis, et pulvinar mi. Nullam in luctus nunc. Aliquam pharetra vulputate vulputate. Nullam posuere elit vitae tincidunt iaculis. Donec pellentesque ultricies iaculis. Sed ut odio orci.</p>
-					<button id='vol-event'> volunteer for Event </button>
-					<button id='vol-3rdparty'> Volunteer for 3rd Party Service </button>
-					<button id='vol-class'> volunteer for class </button>
+					<button id='req-shuttle'> Order a Shuttle </button>
+					<button id='req-clean'> Order a Cleaner </button>
 
-					<!-- Event Form -->
-					<form id='eventForm'>
-						<h3> Event Volunteer Form </h3>
+					<!-- Shuttle Form -->
+					<form id='shuttleForm'>
+						<h3> Shuttle Service Form </h3>
 						First Name:
 						<input type="text" name="firstname">
 						<br>
 						Last Name:
 						<input type="text" name="lastname">
 						<br>
-						Age:
+						Address:
 						<input type="text" name="age">
 						<br>
-						Type of Position: <br>
-						<input type="radio" name="position" value="cleanup" checked> Event Clean Up <br>
-						<input type="radio" name="position" value="setup"> Event Set Up <br>
-						<input type="radio" name="position" value="specific"> Event Specific Volunteer <br>
-						<input type="radio" name="position" value="all"> All of the Above <br>
+						Date:
+						<input id="datetime" type="datetime-local">
+						<br>
+						Type of Shuttle: <br>
+						<input type="radio" name="shuttleType" value="Fancy" checked> Fancy <br>
+						<input type="radio" name="shuttleType" value="Basic"> Basic <br>
+						<input type="radio" name="shuttleType" value="Tuktuk"> Tuktuk <br>
 						<br>
 						<button type=button id="submitButton">Submit</button>
 					</form>
 					<br><br><br>
 
-					<!-- 3rd Party Service Form -->
-					<form id='thirdPartyForm'>
-						<h3> 3rd Party Service Volunteer Form </h3>
+					<!-- Cleaner Form -->
+					<form id='cleanerForm'>
+						<h3> Cleaning Form </h3>
 						First Name:
 						<input type="text" name="firstname">
 						<br>
@@ -67,42 +67,20 @@
 						Age:
 						<input type="text" name="age">
 						<br>
-						Car Info (Model, Year, Make):
+						Cleaning Needed:
 						<input type="text" name="skills">
 						<br>
-						Hours Willing to Volunteer (per week): <br>
-						<input type="range" min="1" max="40" name="hours" value="10"> <br>
+						Date:
+						<input id="datetime" type="datetime-local">
 						<br>
 						<button type=button id="submitButton1">Submit</button>
-					</form>
-					<br><br><br>
-
-					<!-- Class Form -->
-					<form id='classForm'>
-						<h3> Class Volunteer Form </h3>
-						First Name:
-						<input type="text" name="firstname">
-						<br>
-						Last Name:
-						<input type="text" name="lastname">
-						<br>
-						Age:
-						<input type="text" name="age">
-						<br>
-						Skills (comma separated):
-						<input type="text" name="skills">
-						<br>
-						Credentials (comma separated):
-						<input type="text" name="credentials">
-						<br>
-						<button type=button id="submitButton2">Submit</button>
 					</form>
 					<br><br><br>
 
 					<h3 id="postSubmitMessage"></h4>
 
 					<script src="./js/objects.js" type="text/javascript"></script>
-					<script src="js/volunteer.js"></script>
+					<script src="js/thirdPartyService.js"></script>
       		<script src="js/event.js"></script>
       	</section>
     </body>
