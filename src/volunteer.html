@@ -32,7 +32,7 @@
 					<button id='vol-class'> volunteer for class </button>
 
 					<!-- Event Form -->
-					<form id='eventForm' action="myformaction">
+					<form id='eventForm'>
 						<h3> Event Volunteer Form </h3>
 						First Name:
 						<input type="text" name="firstname">
@@ -48,11 +48,13 @@
 						<input type="radio" name="position" value="setup"> Event Set Up <br>
 						<input type="radio" name="position" value="specific"> Event Specific Volunteer <br>
 						<input type="radio" name="position" value="all"> All of the Above <br>
-						<input type="submit" value="Submit">
+						<br>
+						<button type=button id="submitButton">Submit</button>
 					</form>
+					<br><br><br>
 
 					<!-- 3rd Party Service Form -->
-					<form id='thirdPartyForm' action="myformaction">
+					<form id='thirdPartyForm'>
 						<h3> 3rd Party Service Volunteer Form </h3>
 						First Name:
 						<input type="text" name="firstname">
@@ -68,11 +70,13 @@
 						<br>
 						Hours Willing to Volunteer (per week): <br>
 						<input type="range" min="1" max="40" name="hours" value="10"> <br>
-						<input type="submit" value="Submit">
+						<br>
+						<button type=button id="submitButton1">Submit</button>
 					</form>
+					<br><br><br>
 
 					<!-- Class Form -->
-					<form id='classForm' action="">
+					<form id='classForm'>
 						<h3> Class Volunteer Form </h3>
 						First Name:
 						<input type="text" name="firstname">
@@ -89,7 +93,7 @@
 						Credentials (comma separated):
 						<input type="text" name="credentials">
 						<br>
-						<button id="submitButton">Submit</button>
+						<button type=button id="submitButton2">Submit</button>
 					</form>
 					<br><br><br>
 
