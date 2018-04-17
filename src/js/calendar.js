@@ -1,11 +1,10 @@
 var cal = new Calendar(2018,(new Date()).getMonth() + 1);
 
-getEvents();
-
 function updateCalendar(){
     var daysUL = document.getElementById("days");
     var currentDay = cal.getCurrentDay();
     var currentMonth = cal.getCurrentMonth() + 1;
+    var currentYear = cal.getCurrentYear();
     var currentSelectedMonthElement = document.getElementById("currentSelectedMonth");
     currentSelectedMonthElement.innerHTML = cal.getMonthName(cal.month) + "<br><span style='font-size:18px'>"+cal.year+"</span>";
     var numberOfDays = cal.getMonthLength();
@@ -13,7 +12,7 @@ function updateCalendar(){
     for(var dayNumber = 1; dayNumber <= numberOfDays; dayNumber++){
         var dayLI = document.createElement("li");
         dayLI.id = "day_"+dayNumber;
-        if(dayNumber ==currentDay && currentMonth == cal.month){
+        if(dayNumber ==currentDay && currentMonth == cal.month && cal.year == currentYear){
             var activeSpan = document.createElement("div");
             activeSpan.className = "active";
             activeSpan.innerHTML = dayNumber;
@@ -21,6 +20,7 @@ function updateCalendar(){
         }else{
             dayLI.innerHTML = dayNumber;
         }
+        
         var events_Of_Day = cal.getEventOnDay(dayNumber);
         if(events_Of_Day.length > 0){
             dayLI.setAttribute("data-toggle","tooltip");

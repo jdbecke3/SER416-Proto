@@ -149,19 +149,26 @@ var jsonUsers =`[{
                     "attending":[]
                 }]`;
 
+function saveEvents(events){
+    console.log("save Events");
+    window.localStorage.setItem("Events",JSON.stringify(events));
+}
 function getEvents(){
     var events = null;
-    window.localStorage.setItem("Events",JSON.stringify(events));
-    if(window.localStorage.getItem("Events") == null){
-        events = JSON.parse(window.localStorage.getItem("Events"));
+    if(window.localStorage.getItem("Events") !== null){
+        var json = window.localStorage.getItem("Events");
+        events = JSON.parse(json);
     }else{
         events = JSON.parse(jsonEvents);
-        window.localStorage.setItem("Events",JSON.stringify(events));
+        saveEvents(events);
     }
+    console.log("Got Events ("+events.length+")");
     return events;
 }
-function saveEvents(events){
-    window.localStorage.setItem("Events",JSON.stringify(events));
+
+function getPersistence(){
+    console.log("Get Persistence");
+    return new Persistence();
 }
 
 class User{
@@ -348,14 +355,17 @@ class Calendar{
     getCurrentMonth(){
         return (new Date()).getMonth();
     }
+    getCurrentYear(){
+        return (new Date()).getFullYear();
+    }
     getMonthName(month = 0){ // Why is this = 0? Will always return Janaury.
         return this.MONTH_NAMES[month];
     }
     getEventOnDay(day){
         var dayEvents = new Array();
         var indexOf = 0;
-        for(var index in this.events){
-            var events = getEvents();
+        var events = getEvents();
+        for(var index in events){
             var date = new Date(events[index].dateOfEvent);
             if(day == date.getDate() && this.year == date.getFullYear() && this.month == date.getMonth()){
                 dayEvents[indexOf] = events[index];
