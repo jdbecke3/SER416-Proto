@@ -149,28 +149,6 @@ var jsonUsers =`[{
                     "attending":[]
                 }]`;
 
-function saveEvents(events){
-    console.log("save Events");
-    window.localStorage.setItem("Events",JSON.stringify(events));
-}
-function getEvents(){
-    var events = null;
-    if(window.localStorage.getItem("Events") !== null){
-        var json = window.localStorage.getItem("Events");
-        events = JSON.parse(json);
-    }else{
-        events = JSON.parse(jsonEvents);
-        saveEvents(events);
-    }
-    console.log("Got Events ("+events.length+")");
-    return events;
-}
-
-function getPersistence(){
-    console.log("Get Persistence");
-    return new Persistence();
-}
-
 class User{
     constructor(user = null, name = "", email ="", password = "", type = "User",attending=[]){
         if(user != null){

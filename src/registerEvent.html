@@ -5,7 +5,8 @@
 
 	<head>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <script src="./js/objects.js" type="text/javascript"></script>
+        <script src="js/objects.js"></script>
+        <script src="js/functions.js"></script>
 		<title>Community Servic Event Planner</title>
 	</head>
 
@@ -26,8 +27,15 @@
 			</nav>
 		</header>
 		<section class="bodyContent">
+            
+
             <script>
-                var per = new 
+                var per = getPersistence();
+                if(per.isLoggedIn()){
+
+                }
+                console.log("Logged In: " + per.isLoggedIn());
+                
             </script>
         </section>
 	</body>
