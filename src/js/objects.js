@@ -1,5 +1,3 @@
-
-console.log("Loaded Objects");
 jsonEvents = `[
     {
         "dateOfEvent":"2018-05-30T04:21:29.222Z",
@@ -356,3 +354,4 @@ class Calendar{
         return getEvents();
     }
 }
+console.log("Loaded Objects");

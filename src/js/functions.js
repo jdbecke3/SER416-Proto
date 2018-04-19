@@ -25,15 +25,15 @@ function getCalendar(){
     return new Calendar();
 }
 
-function getPopup(innerHTMLOfPopup, innerhHTMLOfInput){
+function getPopup(innerHTMLOfPopup, innerHTMLOfInput){
     var div = document.createElement("Div");
     div.className = "popup";
     div.innerHTML = `<div id="popupBox" class="popupBox">
-
     <div class="popup-content">
       <span class="close">&times;</span>
-      <div id="innerhHTMLOfPopup">`+innerHTMLOfPopup+`</div>
-      <div id="innerHTMLOfInput">`+innerhHTMLOfInput+`</div>
+      <div id="innerHTMLOfPopup">`+innerHTMLOfPopup+`</div>
+      <div id="innerHTMLOfInput">`+innerHTMLOfInput+`</div>
     </div>`;
     return div;
 }
+console.log("Loaded Functions");
