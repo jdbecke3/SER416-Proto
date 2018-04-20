@@ -83,7 +83,7 @@ function prev(){
 updateCalendar();
 
 // Get the modal
-var modal = document.getElementById('myModal');
+var modal = document.getElementById('myModalHost');
 var description = document.getElementById("modelDescription");
 var timeDiv = document.getElementById("modelTime");
 var buttonPopup = document.getElementById("popupButton");

@@ -124,9 +124,16 @@ function offHover (evt) {
 
 function processEvent(eventObj) {
 	eventObj = window.event;
-	alert("ROOM ID: " + eventObj.target.id + "\n\nClicking would prompt a details dialog box to appear for completing the task...");
+	//alert("ROOM ID: " + eventObj.target.id + "\n\nClicking would prompt a details dialog box to appear for completing the task...");
+	
 	let refId = eventObj.target.id;
+	openModel(eventObj.target);
+	
 	let isText = refId.indexOf("Text");
+	
+	// Display Modal:
+	
+	
 	
 	if(isText != -1){
 		console.log("Text");
@@ -151,6 +158,74 @@ function processEvent(eventObj) {
 	// Pass to createEvent function 
 		// Fills in information given already
 		// Prompts pop-up to provide more info.
-		
 	
 }
+
+// Get the modal
+var buttonPopup = document.getElementById("popupButton");
+buttonPopup.addEventListener("click",function(evnt){
+    window.sessionStorage.setItem("selectedEvent",JSON.stringify(evnt.target.selectedEvent));
+    window.location.href = window.location.href.replace("calendar","event");
+});
+var nameDiv = document.getElementById("modelName");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks the button, open the modal 
+function openModel(element) {
+	// TODO: Re-implement conditional on final submission. Leave for testing.
+	//if(isValid){ // If global var in room.js isValid indicating form submitted successfully....
+		var modal = document.getElementById('myModalHost');
+		console.log(element.id);
+		modal.style.display = "block";
+		document.getElementById("rmName").innerHTML = element.id;
+		
+		let startTimeModal = document.getElementById("startTimeModal");
+		let endTimeModal = document.getElementById("endTimeModal");
+		
+		startTimeModal.innerHTML = startDate.value;
+		endTimeModal.innerHTML = endDate.value;
+
+		
+	//}// else {
+		//alert("Please Enter correct Start and End Dates");
+///	}
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";	
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	var modal = document.getElementById('myModalHost');
+	
+	
+
+	console.log(event.target);
+    if (event.target.id == 'myModalHost' || event.target.id == "closeBtn"){
+        modal.style.display = "none";
+    }
+	
+	if (event.target.id == 'bath'){
+		if(!document.getElementById("tltip")){
+			let tooltip = document.createElement("span");
+			let tooltipDiv = document.getElementById("tooltip")
+			tooltip.innerHTML = "Test!";
+			//tooltip.className = "tooltiptext";
+			tooltip.id = "tltip";
+			event.target.appendChild(tooltip);
+			tooltip.style.display = "block";
+			tooltip.visibility = true;
+		}
+	}
+}
+
+
+
+
+
+

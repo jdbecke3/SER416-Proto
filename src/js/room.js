@@ -10,6 +10,10 @@
 *To Test: Launch home.html, enter console and enter: var roomMap = RoomManager() and test by entering a key of any room, say, `roomMap['rmA'];` -- Note will change to class later. 
 */
 
+var startDate;
+var endDate;
+var isValid = false;
+
 var formID = document.getElementById("form");
 
 /* preventDefault prevents the normal POST operation from the button submit from working.
@@ -52,8 +56,8 @@ function setRoomAvailability() {
 	// Get events from day. 
 	// Compare start/end times of events versus new event
 	// alter room availability (disabling room, coloring red, etc.)
-	let startDate = document.getElementById("startDate");
-	let endDate = document.getElementById("endDate");	
+	startDate = document.getElementById("startDate");
+	endDate = document.getElementById("endDate");	
 	let startDateObj = new Date(startDate.value);
 	let endDateObj = new Date(endDate.value);	
 	console.log(startDateObj.getFullYear());
@@ -83,24 +87,24 @@ function setRoomAvailability() {
 		existingEnd.setHours(existingEnd.getHours()+1);
 		console.log(existingStart + " " + existingEnd);
 		
-		alert("Testing: " + startDateObj + " end "+ endDateObj + "\n\n Against: \n\n" + existingStart + " endold " + existingEnd); 
+		//alert("Testing: " + startDateObj + " end "+ endDateObj + "\n\n Against: \n\n" + existingStart + " endold " + existingEnd); 
 		
 		if(endDateObj.getTime() > existingStart && endDateObj.getTime() < existingEnd){
 			hasConflict = true;
-			alert("Conflict 1!");
+			//alert("Conflict 1!");
 			
 		} 
 		else if (startDateObj.getTime() > existingStart && startDateObj.getTime() < existingEnd){
 			hasConflict = true;
-			alert("Conflict 2!");
+			//alert("Conflict 2!");
 			
 		}
 		else if (startDateObj.getTime() < existingStart && endDateObj.getTime() > existingStart){
 			hasConflict = true;
-			alert("Conflict 3!");
+			//alert("Conflict 3!");
 		}
 		else {
-			alert("No conflict");
+			//alert("No conflict");
 		}
 		
 		if(hasConflict) {
@@ -111,7 +115,7 @@ function setRoomAvailability() {
 		
 	}
 			
-	alert("Start Date Obj:"+ startDateObj + "\n\n" + "End Date Obj: " + endDateObj);
+	//alert("Start Date Obj:"+ startDateObj + "\n\n" + "End Date Obj: " + endDateObj);
 	
 	return calendar; // For console test purposes
 }

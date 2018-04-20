@@ -9,7 +9,6 @@
 		<script src="js/functions.js"></script>
 		<title>Community Servic Event Planner</title>
 	</head>
-
 	<body>
 
 		<header>
@@ -27,6 +26,22 @@
 		</header>
 		<section class="bodyContent">
 
+	  <div id="myModalHost" class="modalHost">
+
+      <div class="popup-contentHost">
+	    <span id="closeBtn" class="close">&times;</span>
+		<h3 style="margin-top: 5px;margin-bottom:5px;">Complete Event Form</h3>
+        Room:<div id="rmName" style="display:inline;"></div>
+		<!-- Possible input: This Room's Details:....-->
+        <div>Start Time: <div id="startTimeModal" style="display:inline;"></div></div>
+        <div>End Time: <div id="endTimeModal" style="display:inline;"></div></div>
+        <div>Category:<input type="text" class="inputBtnSet1" id="category" value="" placeholder="Category"/></div>
+		<!-- RADIO: Class, Single Event-->
+		<!-- Title -->
+		<!-- Description -->
+        <div id = "modelButtonDiv" style="text-align:center;margin-top: 10px;"><input class = "popupButton" id="popupButton" type="button" value="Submit Event!"></input></div>
+      </div>
+    </div>
 
 		<!-- TODO:
 			- Set disabled and sequentially enable as user enters details after input-validation confirms good.
@@ -39,10 +54,9 @@
 			Start Date & Time:<span style="width: 10%; display:inline-block;"></span>
 			End Date & Time<br/>
 			<input type="datetime-local" class="inputBtnSet1" id="startDate" value="" title="Enter Start Date & Time For Event" placeholder="Start Date" required/>
-			<input type="datetime-local" class="inputBtnSet1" id="endDate" value="" placeholder="End Date" required/><br/>
+			<input type="datetime-local" class="inputBtnSet1" id="endDate" value="" placeholder="End Date" required/>
 			<!--<input type="text" class="inputBtnSet1" id="startTime" value="" placeholder="Start Time"/>
 			<input type="text" class="inputBtnSet1" id="endTime" value="" placeholder="End Time"/> -->
-			<input type="text" class="inputBtnSet1" id="category" value="" placeholder="Category"/>
 			<input type="submit" id="submitBtn" value="Submit"></input>
 		</div>
 		</form>
