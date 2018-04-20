@@ -5,6 +5,13 @@ function updateCalendar(){
     var currentDay = cal.getCurrentDay();
     var currentMonth = cal.getCurrentMonth() + 1;
     var currentYear = cal.getCurrentYear();
+    var filter = new CalendarFilter(null,null,null,-1,null);
+    if(window.sessionStorage.getItem("CalendarFilter") != null){
+        var jsonFilter = window.sessionStorage.getItem("CalendarFilter");
+        window.sessionStorage.removeItem("CalendarFilter");
+        filter = new CalendarFilter(JSON.parse(jsonFilter));
+    }
+    
     var currentSelectedMonthElement = document.getElementById("currentSelectedMonth");
     currentSelectedMonthElement.innerHTML = cal.getMonthName(cal.month) + "<br><span style='font-size:18px'>"+cal.year+"</span>";
     var numberOfDays = cal.getMonthLength();
@@ -28,18 +35,20 @@ function updateCalendar(){
         }
         // ADD Events to Calendar
         for(var index in events_Of_Day){
-            var eventDiv = document.createElement("div");
-            eventDiv.event = events_Of_Day[index];
-            if(index % 2 == 0){
-                eventDiv.className = eventDiv.event.type+"_even";
-            }else{
-                eventDiv.className = eventDiv.event.type+"_odd";
+            if(!filter.filter(events_Of_Day[index])){
+                var eventDiv = document.createElement("div");
+                eventDiv.event = events_Of_Day[index];
+                if(index % 2 == 0){
+                    eventDiv.className = eventDiv.event.type+"_even";
+                }else{
+                    eventDiv.className = eventDiv.event.type+"_odd";
+                }
+                eventDiv.innerHTML = events_Of_Day[index].name;
+                eventDiv.addEventListener("click",function(evnt){
+                    openModel(evnt.target);
+                })
+                dayLI.appendChild(eventDiv);
             }
-            eventDiv.innerHTML = events_Of_Day[index].name;
-            eventDiv.addEventListener("click",function(evnt){
-                openModel(evnt.target);
-            })
-            dayLI.appendChild(eventDiv);
         }
         dayLI.events = events_Of_Day;
         dayLI.addEventListener("click",function(evnt){

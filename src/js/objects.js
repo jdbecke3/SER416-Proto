@@ -294,14 +294,7 @@ class ObjEvent{
         this.room = room;
         this.endOfEvent = endOfEvent;
         this.attending = attending;
-        if(getUsers() == null){
-            var fromJson = JSON.parse(jsonUsers);
-            saveUsers(fromJson);
-        }
-        if(getEvents() == null){
-            var fromJson = JSON.parse(jsonEvents);
-            saveEvents(fromJson);
-        }
+        this.type = type;
     }
 }
 
@@ -328,7 +321,14 @@ class Calendar{
 		if(Calendar.prototype.calendarReference == null){
 			Calendar.prototype.calendarReference = this;
 		}
-
+        if(getUsers() == null){
+            var fromJson = JSON.parse(jsonUsers);
+            saveUsers(fromJson);
+        }
+        if(getEvents() == null){
+            var fromJson = JSON.parse(jsonEvents);
+            saveEvents(fromJson);
+        }
     }
     getFirstDay(){
         return this.DAY_NAMES[this.date.getDay()];
@@ -363,6 +363,50 @@ class Calendar{
     }
     getAllEvents(){
         return getEvents();
+    }
+}
+
+class CalendarFilter{
+    constructor(jsonFilter = null,mostStartAfterDate = null, mostEndBeforeDate = null, maxLengthInTime=-1, type = null){
+        if(jsonFilter == null){
+            this.mostStartAfterDate = mostStartAfterDate;
+            this.mostEndBeforeDate = mostEndBeforeDate;
+            this.maxLengthInTime = maxLengthInTime;
+            this.type = type;
+        }else{
+            this.mostStartAfterDate = jsonFilter.mostStartAfterDate;
+            this.mostEndBeforeDate = jsonFilter.mostEndBeforeDate;
+            this.maxLengthInTime = jsonFilter.maxLengthInTime;
+            this.type = jsonFilter.type;
+        }
+    }
+
+    filter(event){
+        if(this.mostStartAfterDate != null){
+            var startDate = new Date(event.dateOfEvent);
+            if(startDate.getTime() < mostStartAfterDate.getTime()){
+                return true;
+            }
+        }
+        if(this.mostEndBeforeDate != null){
+            var startDate = new Date(event.dateOfEvent);
+            if(startDate.getTime() > mostEndBeforeDate.getTime()){
+                return true;
+            }
+        }
+        if(this.length != -1){
+            var startDate = new Date(event.dateOfEvent);
+            var endDate = new Date(event.endOfEvent);
+            if( endDate.getTime() - startDate.getTime() < this.maxLengthInTime){
+                return true;
+            }
+        }
+        if(this.type != null){
+            if( this.type != event.type){
+                return true;
+            }
+        }
+        return false;
     }
 }
 console.log("Loaded Objects");

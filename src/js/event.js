@@ -2,6 +2,8 @@
 var jsonEvent = window.sessionStorage.getItem("selectedEvent");
 window.sessionStorage.removeItem("selectedEvent");
 var persistence = getPersistence();
+var pupup = document.getElementById('myModal'); 
+var closePopup = document.getElementsByClassName("close")[0];
 
 function startEventPageJS(){
     var eventCont = document.getElementById("eventContainer");
@@ -33,21 +35,13 @@ function attend(){
 
 startEventPageJS();
 
-// Get the modal
-var modal = document.getElementById('myModal'); 
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+closePopup.onclick = function() {
+    pupup.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal){
-        modal.style.display = "none";
+    if (event.target == pupup){
+        pupup.style.display = "none";
     }
 }
 
@@ -69,7 +63,7 @@ function showPopup(user = null){
             nameField.value = user.name;
             emailField.value = user.email;
             eventNameField.value = event.name;
-            modal.style.display = "block";
+            pupup.style.display = "block";
         }
     }
     

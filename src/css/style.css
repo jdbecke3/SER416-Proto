@@ -151,6 +151,32 @@ nav ul li a:hover{
 }
 
 
+nav ul li div {
+	max-height: 25px;
+	text-decoration: none;
+	color: #87CEFF;
+	display: inline;
+	/*-webkit-transition: font-size: .5s;
+	//-moz-transition: font-size .5s;
+	//-o-transition: font-size .5s;
+	//transition: font-size .5s;
+	//-moz-transition: color .75s;
+	-webkit-transition: color .75s;*/
+	transition: color .75s;
+	margin: auto;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+
+}
+
+nav ul li div:hover{
+	color: white;
+	max-height: 25px;
+	cursor: pointer;
+}
+
+
 .bodyContent {
 	color: white;
 	font-size: 1.2em;
