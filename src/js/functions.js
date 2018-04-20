@@ -15,6 +15,24 @@ function getEvents(){
     return events;
 }
 
+function getUsers(){
+    if(window.localStorage.getItem("Users") != null){
+        var jsonUsers = JSON.parse(window.localStorage.getItem("Users"));
+        var users = [];
+        for(var index in jsonUsers){
+            users[index] = new User(jsonUsers[index]);
+        }
+        return users;
+    }else{
+        return null;
+    }
+
+}
+
+function saveUsers(users){
+    window.localStorage.setItem("Users",JSON.stringify(users));
+}
+
 function getPersistence(){
     console.log("Get Persistence");
     return new Persistence();
@@ -25,15 +43,27 @@ function getCalendar(){
     return new Calendar();
 }
 
-function getPopup(innerHTMLOfPopup, innerHTMLOfInput){
-    var div = document.createElement("Div");
-    div.className = "popup";
-    div.innerHTML = `<div id="popupBox" class="popupBox">
-    <div class="popup-content">
-      <span class="close">&times;</span>
-      <div id="innerHTMLOfPopup">`+innerHTMLOfPopup+`</div>
-      <div id="innerHTMLOfInput">`+innerHTMLOfInput+`</div>
-    </div>`;
-    return div;
-}
+
+//From : https://stackoverflow.com/questions/814613/how-to-read-get-data-from-a-url-using-javascript
+function getURLParams(name){
+    var url = window.location.search;
+    var num = url.search(name);
+    var namel = name.length;
+    var frontlength = namel+num+1; //length of everything before the value 
+    var front = url.substring(0, frontlength);  
+    url = url.replace(front, "");  
+    num = url.search("&");
+  
+   if(num>=0) return url.substr(0,num); 
+   if(num<0)  return url;             
+  }
+  function formatDate(date){
+    var time = "am";
+    var h = date.getHours();
+    if(h > 12){
+        time = "pm";
+        h = h-12;
+    }
+    return date.getDate()+"/"+date.getMonth() + " " + h + ":" + date.getMinutes() + " " + time
+  }
 console.log("Loaded Functions");

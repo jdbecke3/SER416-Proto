@@ -32,7 +32,7 @@ body {
 
 #reservationWrapper {
 
-	background-color: white; //#e5e5e5;
+	background-color: white; /**#e5e5e5;**/
 	max-height: 300px;
 	margin-top: 25px;
 	box-shadow: 5px 5px 15px black;
@@ -51,7 +51,7 @@ body {
 
 .inputBtnSet1 {
 
-	//width: 18.9%; // For 5
+	/**width: 18.9%; // For 5**/
 	width: 34%;
 	padding: 0;
 	margin: 0;
@@ -66,8 +66,8 @@ body {
 	width: 100%;
 	margin: auto;
 	margin-top: 0;
-	//transform: scale(1.5);
-	//pointer-events: none;
+	/**transform: scale(1.5);
+	//pointer-events: none;**/
 }
 
 #bath {
@@ -108,7 +108,7 @@ nav ul {
 	font-size: 1.3em;
 	text-align: center;
 	padding: 0;
-	//padding-top:1em;
+	/**padding-top:1em;**/
 	padding-bottom: 5px;
 	margin: 0 auto;
 	max-height: 25px;
@@ -120,7 +120,7 @@ nav ul li {
 	display: inline;
 	color: #87CEFF;
 
-	padding: 1em;
+	padding: 1%;
 	margin: auto;
 	max-height: 25px;
 

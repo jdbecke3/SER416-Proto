@@ -1,27 +1,7 @@
 
-//From : https://stackoverflow.com/questions/814613/how-to-read-get-data-from-a-url-using-javascript
-var jsonEvent = null;
-function getURLParams(name){
-    var url = window.location.search;
-    var num = url.search(name);
-    var namel = name.length;
-    var frontlength = namel+num+1; //length of everything before the value 
-    var front = url.substring(0, frontlength);  
-    url = url.replace(front, "");  
-    num = url.search("&");
-  
-   if(num>=0) return url.substr(0,num); 
-   if(num<0)  return url;             
-  }
-  function formatDate(date){
-    var time = "am";
-    var h = date.getHours();
-    if(h > 12){
-        time = "pm";
-        h = h-12;
-    }
-    return date.getDate()+"/"+date.getMonth() + " " + h + ":" + date.getMinutes() + " " + time
-  }
+var jsonEvent = window.sessionStorage.getItem("selectedEvent");
+window.sessionStorage.removeItem("selectedEvent");
+var persistence = getPersistence();
 
 function startEventPageJS(){
     var eventCont = document.getElementById("eventContainer");
@@ -29,56 +9,35 @@ function startEventPageJS(){
     var eventDescDiv = document.getElementById("eventDesc");
     var eventStartTimeDiv = document.getElementById("eventStartTime");
     var eventEndTimeDiv = document.getElementById("eventEndTime");
-    jsonEvent = getURLParams("jsonEvent");
-    jsonEvent = decodeURIComponent(jsonEvent);
-    console.log("Event: " + jsonEvent);
     var event = JSON.parse(jsonEvent);
     eventNameDiv.innerHTML = event.name;
     eventDescDiv.innerHTML = event.description;
+    
     var startDate = new Date(event.dateOfEvent);
+    var endDate = new Date(event.endOfEvent);
     var cal = new Calendar(2018,startDate.getDay());
     
     eventStartTimeDiv.innerHTML = formatDate(startDate);
+    eventEndTimeDiv.innerHTML = formatDate(endDate);
 }
 
 function attend(){
-    var persis = getPersistence();
-    if(persis.isUserLoggedIn()){
-        var currentUser = persis.getCurrentUser();
-
+    console.log("Log in: " + persistence.login("Joe","123"));
+    if(persistence.isLoggedIn()){
+        var currentUser = persistence.getCurrentUser();
+        showPopup(currentUser);
     }else{
-
+        showPopup(null);
     }
 }
 
 startEventPageJS();
 
-var nameDiv = document.getElementById("modelName");
+// Get the modal
+var modal = document.getElementById('myModal'); 
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-function openModel(element) {
-    description.innerHTML = element.event.description;
-    var date = new Date(element.event.dateOfEvent);
-    var h = date.getHours();
-    var m = date.getMinutes();
-    if(h > 12){
-        timeDiv.innerHTML = (h -12) + ":" +m + " PM";
-    }else{
-        timeDiv.innerHTML = (h -12) + ":" +m + " AM";
-    }
-    
-    nameDiv.innerHTML = element.event.name;
-    if(element.event.type == "event"){
-        buttonPopup.setAttribute("value", "Go To This Event Page");
-    }else{
-        buttonPopup.setAttribute("value", "Go To This Class Page");
-    }
-    buttonPopup.selectedEvent = element.event;
-    modal.style.display = "block";
-}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -90,4 +49,29 @@ window.onclick = function(event) {
     if (event.target == modal){
         modal.style.display = "none";
     }
+}
+
+function showPopup(user = null){
+    var eventNameField = document.getElementById("eventNameInput");
+    var event = JSON.parse(jsonEvent);
+    var registerButton = document.getElementById("registerButton");
+    if(user != null){
+        if(persistence.isUserAttending(user.name,event.name)){
+            alert("you are already attending this event");
+        }else{
+            var nameField = document.getElementById("nameInput");
+            var emailField = document.getElementById("emailInput");
+            registerButton.username = user.name;
+            registerButton.eventName = event.name;
+            registerButton.addEventListener("click",function (evnt){
+                persistence.userEventRegistration(evnt.target.username,evnt.target.eventName);
+            });
+            nameField.value = user.name;
+            emailField.value = user.email;
+            eventNameField.value = event.name;
+            modal.style.display = "block";
+        }
+    }
+    
+    
 }

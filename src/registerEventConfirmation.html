@@ -5,8 +5,9 @@
 
 	<head>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <script src="js/objects.js"></script>
-        <script src="js/functions.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/eventConfermation.css">
+		<script src="js/objects.js"></script>
+		<script src="js/functions.js"></script>
 		<title>Community Servic Event Planner</title>
 	</head>
 
@@ -21,24 +22,16 @@
 					<li><a href src="./classes.html">Classes</a></li>
 					<li><a href="volunteer.html" src="./volunteer.html">Volunteer</a></li>
 					<li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
-
 					<li><a href src="./donate.html">Donate</a></li>
 				</ul>
 			</nav>
 		</header>
 		<section class="bodyContent">
-            
-
-            <script>
-                var per = getPersistence();
-                if(per.isLoggedIn()){
-
-                }
-                console.log("Logged In: " + per.isLoggedIn());
-                
-            </script>
-        </section>
+            <div id="convermationMessageDiv">
+                <div id="message"> Thank you <div id="usernameDiv" class="inlineData"></div>, for registering for <div id="eventNameDiv" class="inlineData"></div>
+                </div>
+            </div>
+            <script src="js/eventConfermation.js"></script>
+		<section>
 	</body>
-
-
 </html>

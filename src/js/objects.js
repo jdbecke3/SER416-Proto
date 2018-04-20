@@ -166,20 +166,14 @@ class User{
 }
 
 class Persistence{
-    constructor(users = null){
-        this.users = [];
-        if(users == null){
-            if(window.localStorage.getItem("Users") != null){
-                this.users = JSON.parse(window.localStorage.getItem("Users"));
-            }else{
-                var fromJson = JSON.parse(jsonUsers);
-                for(var index in fromJson){
-                    this.users[index] = new User(fromJson[index]);
-                    window.localStorage.setItem("Users", JSON.stringify(this.users));
-                }
-            }
-        }else{
-            this.users = users;
+    constructor(){
+        if(getUsers() == null){
+            var fromJson = JSON.parse(jsonUsers);
+            saveUsers(fromJson);
+        }
+        if(getEvents() == null){
+            var fromJson = JSON.parse(jsonEvents);
+            saveEvents(fromJson);
         }
     }
     /**
@@ -198,17 +192,18 @@ class Persistence{
      */
     userEventRegistration(userName,eventName){
         var events = getEvents();
+        var users = getUsers();
         if(events){
             for(var index in events){
                 if(events[index].name == eventName){
                     events[index].attending[events[index].attending.length] = userName;
-                    var userIndex = getUserIndex(userName);
-                    this.users[userIndex].attending[this.users[userIndex].attending.length] = eventName;
+                    var userIndex = this.getUserIndex(userName);
+                    users[userIndex].attending[users[userIndex].attending.length] = eventName;
                 }
             }
         }
-        window.localStorage.setItem("Users", JSON.stringify(this.users));
-        window.localStorage.setItem("Events", JSON.stringify(events));
+        saveUsers(users);
+        saveEvents(events);
     }
     /**
      * creates a user, adds it to the list, saves the list.
@@ -217,12 +212,9 @@ class Persistence{
      * @param {String} password 
      */
     registerUser(name,email,password){
-        var allUsers = JSON.parse(window.localStorage.getItem("Users"));
-        for(var index in allUsers){
-            this.users[index] = new User(allUsers[index]);
-        }
-        this.users[this.users.length] = new User(null,name, email,password);
-        window.localStorage.setItem("Users", JSON.stringify(this.users));
+        var users = getUsers();
+        users[users.length] = new User(null,name, email,password);
+        saveUsers(users);
     }
     /**
      * logs the user in if the passowrd is correct and the user is found.
@@ -250,9 +242,18 @@ class Persistence{
      */
     getCurrentUser(){
         var user = JSON.parse(window.sessionStorage.getItem("CurrentUser"));
-        return new User(user);
+        
+        user = new User(user);
+        return user;
     }
-
+    isUserAttending(username,eventname){
+        var events = getEvents();
+        var user = this.getUser(username);
+        if(user){
+            return user.attending.includes(eventname);
+        }
+        return false;
+    }
     isLoggedIn(){
         return window.sessionStorage.getItem("CurrentUser") != null;
     }
@@ -268,15 +269,17 @@ class Persistence{
      * @param {String} name 
      */
     getUser(name){
-        for(var index in this.users){
-            if(this.users[index].name == name){
-                return new User(this.users[index]);
+        var users = getUsers();
+        for(var index in users){
+            if(users[index].name == name){
+                return new User(users[index]);
             }
         }
     }
     getUserIndex(name){
-        for(var index in this.users){
-            if(this.users[index].name == name){
+        var users = getUsers();
+        for(var index in users){
+            if(users[index].name == name){
                 return index;
             }
         }
@@ -291,6 +294,14 @@ class ObjEvent{
         this.room = room;
         this.endOfEvent = endOfEvent;
         this.attending = attending;
+        if(getUsers() == null){
+            var fromJson = JSON.parse(jsonUsers);
+            saveUsers(fromJson);
+        }
+        if(getEvents() == null){
+            var fromJson = JSON.parse(jsonEvents);
+            saveEvents(fromJson);
+        }
     }
 }
 

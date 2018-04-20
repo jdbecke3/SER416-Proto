@@ -78,7 +78,8 @@ var description = document.getElementById("modelDescription");
 var timeDiv = document.getElementById("modelTime");
 var buttonPopup = document.getElementById("popupButton");
 buttonPopup.addEventListener("click",function(evnt){
-    window.location.href = window.location.href.replace("calendar","event") + '?jsonEvent=' + JSON.stringify(evnt.target.selectedEvent);
+    window.sessionStorage.setItem("selectedEvent",JSON.stringify(evnt.target.selectedEvent));
+    window.location.href = window.location.href.replace("calendar","event");
 });
 var nameDiv = document.getElementById("modelName");
 
