@@ -67,8 +67,7 @@ function getURLParams(name){
     return date.getDate()+"/"+date.getMonth() + " " + h + ":" + date.getMinutes() + " " + time
   }
 
-
-setTimeout(function(){
+window.onload = function(){
 var classesLink = document.getElementById("classesLink");
 classesLink.addEventListener("click", function(){
         var filter = new CalendarFilter();
@@ -78,5 +77,5 @@ classesLink.addEventListener("click", function(){
         console.log("Clicked Classes");
         window.location.href = window.location.href = "calendar.html";
     });
-},1000);
+};
 console.log("Loaded Functions");

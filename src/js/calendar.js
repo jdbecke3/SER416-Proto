@@ -1,11 +1,12 @@
 var cal = new Calendar(2018,(new Date()).getMonth() + 1);
+var filter = new CalendarFilter();
 
 function updateCalendar(){
     var daysUL = document.getElementById("days");
     var currentDay = cal.getCurrentDay();
     var currentMonth = cal.getCurrentMonth() + 1;
     var currentYear = cal.getCurrentYear();
-    var filter = new CalendarFilter(null,null,null,-1,null);
+    
     if(window.sessionStorage.getItem("CalendarFilter") != null){
         var jsonFilter = window.sessionStorage.getItem("CalendarFilter");
         window.sessionStorage.removeItem("CalendarFilter");
@@ -127,4 +128,12 @@ window.onclick = function(event) {
     if (event.target == modal){
         modal.style.display = "none";
     }
+}
+
+var clearFilterDiv=document.getElementById("fitlerDiv");
+if(clearFilterDiv){
+    clearFilterDiv.addEventListener("click",function(){
+        filter = new CalendarFilter();
+        updateCalendar();
+    });
 }

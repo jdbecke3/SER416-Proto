@@ -33,7 +33,7 @@ jsonEvents = `[
         "dateOfEvent":"2018-05-28T04:21:29.222Z",
         "endOfEvent":"2018-05-30T04:21:29.222Z",		
         "description":"something something, ....",
-        "name":"party for the partiers",
+        "name":"Johns party",
         "isPublic": true,
         "room" : "rmC",
         "type" : "event",

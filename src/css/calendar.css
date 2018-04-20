@@ -1,6 +1,14 @@
 * {box-sizing: border-box;}
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
+.fitlerDiv{
+    text-align: left;
+    max-width: 100px;
+}
+.fitlerDiv:hover{
+    color:#b4b4b4;
+    cursor: pointer;
+}
 #calendarContainer{
     padding-top: 15px;
     padding-bottom: 20px;
