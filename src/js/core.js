@@ -162,11 +162,11 @@ function processEvent(eventObj) {
 }
 
 // Get the modal
-var buttonPopup = document.getElementById("popupButton");
-buttonPopup.addEventListener("click",function(evnt){
-    window.sessionStorage.setItem("selectedEvent",JSON.stringify(evnt.target.selectedEvent));
-    window.location.href = window.location.href.replace("calendar","event");
-});
+var buttonPopup = document.getElementById("popupButtonEvent");
+/*buttonPopup.addEventListener("click",function(evnt){
+    //window.sessionStorage.setItem("selectedEvent",JSON.stringify(evnt.target.selectedEvent));
+   // window.location.href = window.location.href.replace("calendar","event");
+});*/
 var nameDiv = document.getElementById("modelName");
 
 // Get the <span> element that closes the modal
@@ -181,7 +181,7 @@ function openModel(element) {
 		console.log(element.id);
 		modal.style.display = "block";
 		document.getElementById("rmName").innerHTML = element.id;
-		
+		}
 		let startTimeModal = document.getElementById("startTimeModal");
 		let endTimeModal = document.getElementById("endTimeModal");
 		
@@ -191,8 +191,8 @@ function openModel(element) {
 		
 	//}// else {
 		//alert("Please Enter correct Start and End Dates");
-///	}
-}
+//	}
+
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -202,12 +202,10 @@ span.onclick = function() {
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
 	var modal = document.getElementById('myModalHost');
-	
-	
-
 	console.log(event.target);
     if (event.target.id == 'myModalHost' || event.target.id == "closeBtn"){
         modal.style.display = "none";
+		console.log("here");
     }
 	
 	if (event.target.id == 'bath'){
@@ -222,7 +220,27 @@ window.onclick = function(event) {
 			tooltip.visibility = true;
 		}
 	}
+	if(event.target.id === 'popupButtonEvent'){
+		
+		// Attempt to fetch data
+		// Already have startdate & time refs
+		let title = document.getElementById("eventTitle").value;
+		let eventType = document.querySelector('input[name = "type"]:checked').value; // Nifty way to select based on a dynamic styling condition. Only gets the checked radio button value
+		let category = document.getElementById("category").value;
+		let eventDesc = document.getElementById("eventDescription").value;
+		
+		console.log(title);
+		console.log(eventType);
+		console.log(category);
+		console.log(eventDesc);
+		
+		
+		alert("Submitted!");
+        modal.style.display = "none";
+	}
 }
+	
+
 
 
 

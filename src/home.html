@@ -13,6 +13,7 @@
 
 		<header>
 			<h1>Community Service Site</h2> <!-- Change later-->
+		</header>
 			<nav>
 				<ul>
 					<li><a href="calendar.html" src="./calendar.html">Calendar</a></li>
@@ -22,8 +23,7 @@
 					<li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
 					<li><a href src="./donate.html">Donate</a></li>
 				</ul>
-			</nav>
-		</header>
+			</nav>		
 		<section class="bodyContent">
 
 	  <div id="myModalHost" class="modalHost">
@@ -35,11 +35,15 @@
 		<!-- Possible input: This Room's Details:....-->
         <div>Start Time: <div id="startTimeModal" style="display:inline;"></div></div>
         <div>End Time: <div id="endTimeModal" style="display:inline;"></div></div>
+        <div>Title:<input type="text" class="inputBtnSet1" id="eventTitle" value="" placeholder="Title"/></div>
+		<div><input type="radio" id="classRadio" name="type" value="class">Class<input type="radio" id="eventRadio" name="type" value="event" checked>Event</div>
         <div>Category:<input type="text" class="inputBtnSet1" id="category" value="" placeholder="Category"/></div>
+        <div>Description:<br/><textarea cols="50" rows="6" id="eventDescription" value="" placeholder="Event Description" required/></textarea></div>
+		
 		<!-- RADIO: Class, Single Event-->
 		<!-- Title -->
 		<!-- Description -->
-        <div id = "modelButtonDiv" style="text-align:center;margin-top: 10px;"><input class = "popupButton" id="popupButton" type="button" value="Submit Event!"></input></div>
+        <div id="modelButtonDiv" style="text-align:center;margin-top: 10px;"><input class="popupButton" id="popupButtonEvent" type="button" value="Submit Event!"></input></div>
       </div>
     </div>
 

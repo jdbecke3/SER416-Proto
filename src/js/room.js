@@ -60,6 +60,7 @@ function setRoomAvailability() {
 	endDate = document.getElementById("endDate");	
 	let startDateObj = new Date(startDate.value);
 	let endDateObj = new Date(endDate.value);	
+	
 	console.log(startDateObj.getFullYear());
 	console.log(startDateObj.getMonth());
 	console.log(startDateObj.getDate());
