@@ -1,5 +1,6 @@
 
 //From : https://stackoverflow.com/questions/814613/how-to-read-get-data-from-a-url-using-javascript
+var jsonEvent = null;
 function getURLParams(name){
     var url = window.location.search;
     var num = url.search(name);
@@ -28,7 +29,7 @@ function startEventPageJS(){
     var eventDescDiv = document.getElementById("eventDesc");
     var eventStartTimeDiv = document.getElementById("eventStartTime");
     var eventEndTimeDiv = document.getElementById("eventEndTime");
-    var jsonEvent = getURLParams("jsonEvent");
+    jsonEvent = getURLParams("jsonEvent");
     jsonEvent = decodeURIComponent(jsonEvent);
     console.log("Event: " + jsonEvent);
     var event = JSON.parse(jsonEvent);
@@ -40,4 +41,53 @@ function startEventPageJS(){
     eventStartTimeDiv.innerHTML = formatDate(startDate);
 }
 
+function attend(){
+    var persis = getPersistence();
+    if(persis.isUserLoggedIn()){
+        var currentUser = persis.getCurrentUser();
+
+    }else{
+
+    }
+}
+
 startEventPageJS();
+
+var nameDiv = document.getElementById("modelName");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+function openModel(element) {
+    description.innerHTML = element.event.description;
+    var date = new Date(element.event.dateOfEvent);
+    var h = date.getHours();
+    var m = date.getMinutes();
+    if(h > 12){
+        timeDiv.innerHTML = (h -12) + ":" +m + " PM";
+    }else{
+        timeDiv.innerHTML = (h -12) + ":" +m + " AM";
+    }
+    
+    nameDiv.innerHTML = element.event.name;
+    if(element.event.type == "event"){
+        buttonPopup.setAttribute("value", "Go To This Event Page");
+    }else{
+        buttonPopup.setAttribute("value", "Go To This Class Page");
+    }
+    buttonPopup.selectedEvent = element.event;
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal){
+        modal.style.display = "none";
+    }
+}

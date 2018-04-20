@@ -80,7 +80,6 @@ var buttonPopup = document.getElementById("popupButton");
 buttonPopup.addEventListener("click",function(evnt){
     window.location.href = window.location.href.replace("calendar","event") + '?jsonEvent=' + JSON.stringify(evnt.target.selectedEvent);
 });
-var popupDiv = getPopup("");
 var nameDiv = document.getElementById("modelName");
 
 // Get the <span> element that closes the modal
