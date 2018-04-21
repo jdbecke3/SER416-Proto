@@ -245,3 +245,10 @@ nav ul li div:hover{
 user-select: none;
 
 }
+rect{
+	cursor: pointer;
+}
+
+g text{
+	cursor: pointer;
+}
