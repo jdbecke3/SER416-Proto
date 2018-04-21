@@ -125,21 +125,28 @@ function offHover (evt) {
 function processEvent(eventObj) {
 	eventObj = window.event;
 	//alert("ROOM ID: " + eventObj.target.id + "\n\nClicking would prompt a details dialog box to appear for completing the task...");
+	console.log("Here in proc");
+		console.log("Here in proc2");
+
+	//let refId = eventObj.target.id;
+	console.log("Here in proc2");
+	console.log(eventObj);
+		
+	console.log(eventObj.target);
+	openModelEvent(eventObj.target);
+	console.log("Here2");
 	
-	let refId = eventObj.target.id;
-	openModel(eventObj.target);
-	
-	let isText = refId.indexOf("Text");
+	//let isText = refId.indexOf("Text");
 	
 	// Display Modal:
 	
 	
 	
-	if(isText != -1){
+	/*if(isText != -1){
 		console.log("Text");
 		refId = refId.substring(0, isText);
 		console.log("new ref:"+refId);;
-	}
+	}*/
 	console.log("\n\nHERE:"+refId);
 	
 	/*NEEDED VARS:
@@ -174,19 +181,21 @@ var span = document.getElementsByClassName("close")[0];
 
 
 // When the user clicks the button, open the modal 
-function openModel(element) {
+function openModelEvent(element) {
+	console.log("here in open modal");
 	// TODO: Re-implement conditional on final submission. Leave for testing.
 	//if(isValid){ // If global var in room.js isValid indicating form submitted successfully....
 		var modal = document.getElementById('myModalHost');
 		console.log(element.id);
 		modal.style.display = "block";
 		document.getElementById("rmName").innerHTML = element.id;
-		}
+		//}
 		let startTimeModal = document.getElementById("startTimeModal");
 		let endTimeModal = document.getElementById("endTimeModal");
 		
 		startTimeModal.innerHTML = startDate.value;
 		endTimeModal.innerHTML = endDate.value;
+	}
 
 		
 	//}// else {
@@ -228,11 +237,18 @@ window.onclick = function(event) {
 		let eventType = document.querySelector('input[name = "type"]:checked').value; // Nifty way to select based on a dynamic styling condition. Only gets the checked radio button value
 		let category = document.getElementById("category").value;
 		let eventDesc = document.getElementById("eventDescription").value;
-		
+		let room = document.getElementById("rmName").innerHTML;
 		console.log(title);
 		console.log(eventType);
 		console.log(category);
 		console.log(eventDesc);
+		let newEvent = new ObjEvent(title, eventDesc, startDateObj, endDateObj, [""], eventType, room);
+		
+		persistenceRef = new Persistence();
+		persistenceRef.registerEvent(newEvent);
+
+		// ObjEvent in object.js
+		// Persistence addEvent/RegisterEvent 
 		
 		
 		alert("Submitted!");

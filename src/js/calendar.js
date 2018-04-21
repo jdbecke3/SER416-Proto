@@ -83,7 +83,7 @@ function prev(){
 updateCalendar();
 
 // Get the modal
-var modal = document.getElementById('myModalHost');
+var modal = document.getElementById('myModal');
 var description = document.getElementById("modelDescription");
 var timeDiv = document.getElementById("modelTime");
 var buttonPopup = document.getElementById("popupButton");
@@ -102,10 +102,15 @@ function openModel(element) {
     var date = new Date(element.event.dateOfEvent);
     var h = date.getHours();
     var m = date.getMinutes();
+	console.log(m < 10);
+	if(m < 10){
+		m = 0+m;
+	}
+	
     if(h > 12){
-        timeDiv.innerHTML = (h -12) + ":" +m + " PM";
+        timeDiv.innerHTML = (h -12) + ":" + (m < 10 ? "0" : "") + m + " PM";
     }else{
-        timeDiv.innerHTML = (h -12) + ":" +m + " AM";
+        timeDiv.innerHTML = (h) + ":" + (m < 10 ? "0" : "") +m + " AM";
     }
     
     nameDiv.innerHTML = element.event.name;

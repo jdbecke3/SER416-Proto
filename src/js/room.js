@@ -12,6 +12,8 @@
 
 var startDate;
 var endDate;
+var startDateObj;
+var endDateObj;
 var isValid = false;
 
 var formID = document.getElementById("form");
@@ -58,8 +60,8 @@ function setRoomAvailability() {
 	// alter room availability (disabling room, coloring red, etc.)
 	startDate = document.getElementById("startDate");
 	endDate = document.getElementById("endDate");	
-	let startDateObj = new Date(startDate.value);
-	let endDateObj = new Date(endDate.value);	
+	startDateObj = new Date(startDate.value);
+	endDateObj = new Date(endDate.value);	
 	
 	console.log(startDateObj.getFullYear());
 	console.log(startDateObj.getMonth());
