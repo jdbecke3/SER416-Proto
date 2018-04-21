@@ -52,6 +52,15 @@ function RoomManager () {
 
 function setRoomAvailability() {
 
+	// Initialize all rooms to green at start/end
+	let rooms = document.getElementsByClassName("rms");
+	
+	for (var i=0;i<rooms.length;i++){
+		setRoomGreen(rooms[i]);
+	}
+	
+	//document.querySelector(".rms").fill = "blue";
+	
 	// TODO: Add validation for when endDate < startDate, etc.
 	// Migrate this function to core.js I think?
 	// Fetch new Calendar instance for year/month of requested new event. 
@@ -90,6 +99,8 @@ function setRoomAvailability() {
 		existingEnd.setHours(existingEnd.getHours()+1);
 		console.log(existingStart + " " + existingEnd);
 		
+		let hadConflict = {};
+		
 		//alert("Testing: " + startDateObj + " end "+ endDateObj + "\n\n Against: \n\n" + existingStart + " endold " + existingEnd); 
 		
 		if(endDateObj.getTime() > existingStart && endDateObj.getTime() < existingEnd){
@@ -110,8 +121,11 @@ function setRoomAvailability() {
 			//alert("No conflict");
 		}
 		
+		let roomID = parsedEvents[i].room.name;
+		console.log(roomID);
 		if(hasConflict) {
 			setRoomRed(parsedEvents[i]);
+			hadConflict.roomID = true; 
 		}
 		
 		// TODO: IF any conflict, block room associated with the existing event.
@@ -138,6 +152,23 @@ function setRoomRed(eventObj) {
 	room.removeEventListener("click", processEvent);
 	roomText.removeEventListener("click", processEvent);	
 	
+}
+
+// May need to expand
+function setRoomGreen(room){
+
+	let roomText = document.getElementById(room.id+"Text");
+	room.style.fill = "#00ff00";
+	
+	room.addEventListener("mouseover", onHover, false);
+	room.addEventListener("mouseout", offHover, false);
+	
+	roomText.addEventListener("mouseover", onHover, false);
+	roomText.addEventListener("mouseout", offHover, false);
+	
+	room.addEventListener("click", processEvent, false);
+	roomText.addEventListener("click", processEvent, false);	
+
 }
 
 // Likely Antiquated helper function
