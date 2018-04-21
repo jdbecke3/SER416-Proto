@@ -184,24 +184,19 @@ var span = document.getElementsByClassName("close")[0];
 function openModelEvent(element) {
 	console.log("here in open modal");
 	// TODO: Re-implement conditional on final submission. Leave for testing.
-	//if(isValid){ // If global var in room.js isValid indicating form submitted successfully....
+	if(isValid){ // If global var in room.js isValid indicating form submitted successfully....
 		var modal = document.getElementById('myModalHost');
 		console.log(element.id);
 		modal.style.display = "block";
 		document.getElementById("rmName").innerHTML = element.id;
-		//}
 		let startTimeModal = document.getElementById("startTimeModal");
 		let endTimeModal = document.getElementById("endTimeModal");
-		
 		startTimeModal.innerHTML = startDate.value;
 		endTimeModal.innerHTML = endDate.value;
+	} else {
+		alert("Please Enter correct Start and End Dates");			
 	}
-
-		
-	//}// else {
-		//alert("Please Enter correct Start and End Dates");
-//	}
-
+}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -249,7 +244,6 @@ window.onclick = function(event) {
 
 		// ObjEvent in object.js
 		// Persistence addEvent/RegisterEvent 
-		
 		
 		alert("Submitted!");
         modal.style.display = "none";
