@@ -92,37 +92,44 @@ body {font-family: Verdana, sans-serif;}
 
 .days li .event_even {
     width: 100%;
-    background: #45f442;
+    background: #fff88f;
     margin: 3px;
+    color: black;
 }
 .days li .event_even:hover {
-    background: #32b530;
+    background: #000000;
+    color: white;
 }
 .days li .event_odd {
     width: 100%;
-    background: #fffb1c;
+    background: #ffcbcb;
     margin: 3px;
+    color: black;
 }
 .days li .event_odd:hover {
-    background: #c6c313;
+    background: #000000;
+    color: white;
 }
 
 .days li .class_even {
     width: 100%;
-    background: #c50000;
+    background: #9dffa5;
     margin: 3px;
-    color: white;
+    color: black;
 }
 .days li .class_even:hover {
-    background: #6e1e10;
+    background: #000000;
+    color: white;
 }
 .days li .class_odd {
     width: 100%;
-    background: #44e2d3;
+    background: #a8fff6;
     margin: 3px;
+    color: black;
 }
 .days li .class_odd:hover {
-    background: #35b2a6;
+    background: #000000;
+    color: white;
 }
 
 /* Add media queries for smaller screens */
