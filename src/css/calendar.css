@@ -14,10 +14,17 @@ body {font-family: Verdana, sans-serif;}
     padding-bottom: 20px;
 }
 .month {
-    padding: 70px 25px;
+    padding: 70px 10px;
     width: 100%;
-    background: #1abc9c;
+    background: #222629;
     text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+#MonthSection{
+    background-color: #486B00;
+    width:100%;
+    border-radius: 15px;
 }
 
 .month ul {
@@ -81,12 +88,12 @@ body {font-family: Verdana, sans-serif;}
 
 .days li .active {
     padding: 5px;
-    background: #1abc9c;
+    background: #222629;
     color: white !important
 }
 .days .hasEvent {
     padding: 5px;
-    background: #1abc9c;
+    background: #222629;
     color: white !important
 }
 
@@ -163,7 +170,7 @@ body {font-family: Verdana, sans-serif;}
 
 /* Modal Content */
 .popup-content {
-    background-color: #1abc9c;
+    background-color: #222629;
     color: white;
     margin: auto;
     padding: 20px;
