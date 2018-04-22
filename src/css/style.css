@@ -179,7 +179,7 @@ nav ul li a {
 nav ul li a:hover{
 	color: rgb(0, 0, 0);
 	max-height: 25px;
-
+	text-decoration: none; 
 }
 
 
