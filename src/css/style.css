@@ -39,7 +39,7 @@ html {
 body {
 	border-radius: 10px;
 	padding: 0;
-	background-color: #303C6C70;
+	background-color: #1b223d99;
 	display: block;
 	margin: auto;
 	width: 65%;
@@ -47,7 +47,11 @@ body {
 }
 @font-face {
     font-family: 'bakersfield';
-    src: url("bakersfield/Bakersfield_Bold.ttf");
+	src: url("bakersfield/Bakersfield_Bold.ttf");
+}
+@font-face {
+	font-family: 'bakersfield_light';
+    src: url("bakersfield/Bakersfield_Light.ttf");
 }
 header {
 	font-family: bakersfield;
@@ -137,6 +141,7 @@ nav {
 	border-top: 2px, white;
 	background-color:#fBE8A690;
 	max-height: 100px;
+	font-family: bakersfield;	
 
 }
 
@@ -159,7 +164,6 @@ nav ul li {
 
 	display: inline;
 	color: #7D4427;
-
 	padding: 1%;
 	margin: auto;
 	max-height: 25px;
@@ -222,6 +226,7 @@ nav ul li div:hover{
 	padding-left: 5%;
 	padding-right:5%;
 	margin-bottom: 15px;
+	font-family: bakersfield_light;
 }
 
 .tooltip {
