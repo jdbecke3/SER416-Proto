@@ -75,7 +75,7 @@ header h1 {
 
 #reservationWrapper {
 
-	background-color: white; /**#e5e5e5;**/
+	background-color: #22262999; /**#e5e5e5;**/
 	max-height: 300px;
 	margin-top: 25px;
 	box-shadow: 5px 5px 15px black;
@@ -260,6 +260,10 @@ user-select: none;
 }
 rect{
 	cursor: pointer;
+	fill: #9b121290 !important;
+}
+rect:hover{
+	fill: #9b601290 !important;
 }
 
 g text{
