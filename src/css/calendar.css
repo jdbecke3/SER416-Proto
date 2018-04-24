@@ -16,13 +16,13 @@ body {font-family: Verdana, sans-serif;}
 .month {
     padding: 70px 10px;
     width: 100%;
-    background: #222629;
+    background: #22262999;
     text-align: center;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 #MonthSection{
-    background-color: #486B00;
+    background-color: #9b121290;
     width:100%;
     border-radius: 15px;
 }
