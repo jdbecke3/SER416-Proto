@@ -117,7 +117,7 @@ function offHover (evt) {
 	}
 	var ref = document.getElementById(refId);
 	
-	ref.style.fill = "#9b121290";
+	ref.style.fill = "#fBE8A690";
 	
 	
 }

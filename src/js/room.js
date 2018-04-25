@@ -158,7 +158,7 @@ function setRoomRed(eventObj) {
 function setRoomGreen(room){
 
 	let roomText = document.getElementById(room.id+"Text");
-	room.style.fill = "#00ff00";
+	room.style.fill = "#fBE8A690";
 	
 	room.addEventListener("mouseover", onHover, false);
 	room.addEventListener("mouseout", offHover, false);
