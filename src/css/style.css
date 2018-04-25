@@ -76,7 +76,6 @@ header {
 	text-align: center;
 }
 header h1 {
-
 	border-radius: 20px;
 	color: white;
 	text-align: center;
@@ -88,22 +87,18 @@ header h1 {
 }
 
 #reservationWrapper {
-
 	background-color: #22262999; /**#e5e5e5;**/
 	max-height: 300px;
 	margin-top: 25px;
 	box-shadow: 5px 5px 15px black;
 	margin: auto;
 	margin-top: 5px;
-
 	width: 100%;
 }
 
 #resInputs {
-
 	padding: 0;
 	display: inline;
-	width: 100%;
 }
 
 .inputBtnSet1 {

@@ -178,14 +178,17 @@ body {font-family: Verdana, sans-serif;}
     width: 80%;
     max-width: 400px;
     min-height: 120px;
+    border-radius: 20px;
 }
 
 .popupButton{
-    background-color: #1c2128;
-    border-color: black;
+    background-color: #9b121290;
+    border-color: #1b223d99;
+    color: white;
 }
 .popupButton:hover{
-    background-color: #14181d;
+    background-color: #53000090;
+    cursor: pointer;
 }
 
 /* The Close Button */
