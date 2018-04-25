@@ -22,7 +22,7 @@ var formID = document.getElementById("form");
    Otherwise the built-in form validation wouldn't work if we went with a regular button submit.
    Call handling method from within anonymous function.
 */
-document.getElementById("submitBtn").addEventListener("click", function(event) {event.preventDefault(); if(formID.checkValidity()){setRoomAvailability();} else {alert("Invalid Form");} });
+document.getElementById("submitBtn").addEventListener("click", function(event) {event.preventDefault(); if(formID.checkValidity()){isValid = true; setRoomAvailability();} else {alert("Invalid Form");} });
 
 // Integrate as Class 
 function Room(roomID, isAvailable) {
