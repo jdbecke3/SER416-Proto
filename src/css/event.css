@@ -48,7 +48,7 @@
 
 .popupButton{
     background-color: #fBE8A690;
-    border-color: wheat;
+    border:none;
 
 }
 .popupButton:hover{
