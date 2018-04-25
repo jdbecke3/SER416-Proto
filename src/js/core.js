@@ -100,7 +100,7 @@ function onHover (evt) {
 	}
 	
 	var ref = document.getElementById(refId);
-	ref.style.fill = "#b3ffb3";
+	ref.style.fill = "#9b601290";
 	
 	
 }
@@ -117,7 +117,7 @@ function offHover (evt) {
 	}
 	var ref = document.getElementById(refId);
 	
-	ref.style.fill = "#00FF00";
+	ref.style.fill = "#9b121290";
 	
 	
 }
