@@ -5,10 +5,10 @@
 -->
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-		<link rel="stylesheet" type="text/css" href="./css/thirdPartyService.css">
+		<link rel="stylesheet" type="text/css" href="./css/donate.css">
 		<script src="js/objects.js"></script>
 		<script src="js/functions.js"></script>
-		<title>Community Serviec Event Planner</title>
+		<title>Community Servic Event Planner</title>
 	</head>
 
 
@@ -21,66 +21,50 @@
 					<li><a href="./planner.html">Host</a></li>
 					<li><div id="classesLink">Classes</div></li>
 					<li><a href="volunteer.html" src="./volunteer.html">Volunteer</a></li>
-          			<li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
-					<li><a href="donate.html" src="./donate.html">Donate</a></li>
+					<li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
+
+					<li><a href src="donate.html">Donate</a></li>
 				</ul>
 			</nav>
 		</header>
         <section class="bodyContent">
-          <h1> 3rd Party Service Yay! </h1>
-					<img src="https://i.ytimg.com/vi/fhevmoGb7vU/hqdefault.jpg">
+          <h1> Make a Donation! </h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, elit id ultrices laoreet, massa orci posuere diam, vulputate ultrices libero nibh vitae leo. Nam ultrices nisi ante, vel interdum ipsum facilisis pellentesque. Curabitur placerat tincidunt iaculis. Quisque ac consequat lectus. Donec ornare commodo nibh et pharetra. Nulla facilisi. Nulla eu dapibus turpis, et pulvinar mi. Nullam in luctus nunc. Aliquam pharetra vulputate vulputate. Nullam posuere elit vitae tincidunt iaculis. Donec pellentesque ultricies iaculis. Sed ut odio orci.</p>
-					<button id='req-shuttle'> Order a Shuttle </button>
-					<button id='req-clean'> Order a Cleaner </button>
+					<button id='donation-public'> Make a Public Donation </button>
+					<button id='donation-private'> Make a Private Donation </button>
 
-					<!-- Shuttle Form -->
-					<form id='shuttleForm'>
-						<h3> Shuttle Service Form </h3>
+					<form id='publicDonationForm'>
+						<h3> Public Donation Form </h3>
 						First Name:
 						<input type="text" name="firstname">
 						<br>
 						Last Name:
 						<input type="text" name="lastname">
 						<br>
-						Address:
-						<input type="text" name="age">
-						<br>
-						Date:
-						<input id="datetime" type="datetime-local">
-						<br>
-						Type of Shuttle: <br>
-						<input type="radio" name="shuttleType" value="Fancy" checked> Fancy <br>
-						<input type="radio" name="shuttleType" value="Basic"> Basic <br>
-						<input type="radio" name="shuttleType" value="Tuktuk"> Tuktuk <br>
-						<br>
-						<button type=button id="submitButton">Submit</button>
+						Amount:
+						<input type="number" name="amount">
+
+						<button type=button id="submitButtonPublic">Submit</button>
 					</form>
 					<br><br><br>
 
-					<!-- Cleaner Form -->
-					<form id='cleanerForm'>
-						<h3> Cleaning Form </h3>
+					<form id='privateDonationForm'>
+						<h3> Private Donation Form </h3>
 						First Name:
 						<input type="text" name="firstname">
 						<br>
 						Last Name:
 						<input type="text" name="lastname">
 						<br>
-						Age:
-						<input type="text" name="age">
-						<br>
-						Cleaning Needed:
-						<input type="text" name="skills">
-						<br>
-						Date:
-						<input id="datetime" type="datetime-local">
-						<br>
-						<button type=button id="submitButton1">Submit</button>
+						Amount:
+						<input type="text" name="amount">
+
+						<button type=button id="submitButtonPrivate">Submit</button>
 					</form>
 					<br><br><br>
 
 					<h3 id="postSubmitMessage"></h4>
-					<script src="js/thirdPartyService.js"></script>
+					<script src="js/donate.js"></script>
       		<script src="js/event.js"></script>
       	</section>
     </body>

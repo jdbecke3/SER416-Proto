@@ -147,7 +147,7 @@ function processEvent(eventObj) {
 		refId = refId.substring(0, isText);
 		console.log("new ref:"+refId);;
 	}*/
-	console.log("\n\nHERE:"+refId);
+	//console.log("\n\nHERE:"+refId);
 	
 	/*NEEDED VARS:
 	
