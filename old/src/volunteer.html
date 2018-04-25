@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+    <!--event.html?jsonEvent={%22dateOfEvent%22:%222018-05-11T04:21:29.222Z%22,%22description%22:%22why%20cant%20I%20think%20of%20any%20events,%20....%22,%22name%22:%22spanish%20Lessons%22,%22isPublic%22:true,%22room%22:%22Room%202%22,%22teacher%22:%22Ricky%20Boobie%22,%22max_students%22:50,%22type%22:%22class%22}
+-->
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/volunteer.css">
+		<script src="js/objects.js"></script>
+		<script src="js/functions.js"></script>
+		<title>Community Servic Event Planner</title>
+	</head>
+
+
+	<body>
+		<header>
+			<h1>Community Service Site</h2> <!-- Change later-->
+			<nav>
+				<ul>
+					<li><a href="calendar.html" src="./calendar.html">Calendar</a></li>
+					<li><a href="./planner.html">Host</a></li>
+					<li><div id="classesLink">Classes</div></li>
+					<li><a href="volunteer.html" src="./volunteer.html">Volunteer</a></li>
+					<li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
+
+					<li><a href src="./donate.html">Donate</a></li>
+				</ul>
+			</nav>
+		</header>
+        <section class="bodyContent">
+          <h1> Volunteer Yay! </h1>
+					<img src="http://i.cdn.travel.cnn.com/sites/default/files/styles/article_large/public/2011/07/21/Volunteer_main.jpg?itok=K8sW7ze9">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, elit id ultrices laoreet, massa orci posuere diam, vulputate ultrices libero nibh vitae leo. Nam ultrices nisi ante, vel interdum ipsum facilisis pellentesque. Curabitur placerat tincidunt iaculis. Quisque ac consequat lectus. Donec ornare commodo nibh et pharetra. Nulla facilisi. Nulla eu dapibus turpis, et pulvinar mi. Nullam in luctus nunc. Aliquam pharetra vulputate vulputate. Nullam posuere elit vitae tincidunt iaculis. Donec pellentesque ultricies iaculis. Sed ut odio orci.</p>
+					<button id='vol-event'> volunteer for Event </button>
+					<button id='vol-3rdparty'> Volunteer for 3rd Party Service </button>
+					<button id='vol-class'> volunteer for class </button>
+
+					<!-- Event Form -->
+					<form id='eventForm'>
+						<h3> Event Volunteer Form </h3>
+						First Name:
+						<input type="text" name="firstname">
+						<br>
+						Last Name:
+						<input type="text" name="lastname">
+						<br>
+						Age:
+						<input type="text" name="age">
+						<br>
+						Type of Position: <br>
+						<input type="radio" name="position" value="cleanup" checked> Event Clean Up <br>
+						<input type="radio" name="position" value="setup"> Event Set Up <br>
+						<input type="radio" name="position" value="specific"> Event Specific Volunteer <br>
+						<input type="radio" name="position" value="all"> All of the Above <br>
+						<br>
+						<button type=button id="submitButton">Submit</button>
+					</form>
+					<br><br><br>
+
+					<!-- 3rd Party Service Form -->
+					<form id='thirdPartyForm'>
+						<h3> 3rd Party Service Volunteer Form </h3>
+						First Name:
+						<input type="text" name="firstname">
+						<br>
+						Last Name:
+						<input type="text" name="lastname">
+						<br>
+						Age:
+						<input type="text" name="age">
+						<br>
+						Car Info (Model, Year, Make):
+						<input type="text" name="skills">
+						<br>
+						Hours Willing to Volunteer (per week): <br>
+						<input type="range" min="1" max="40" name="hours" value="10"> <br>
+						<br>
+						<button type=button id="submitButton1">Submit</button>
+					</form>
+					<br><br><br>
+
+					<!-- Class Form -->
+					<form id='classForm'>
+						<h3> Class Volunteer Form </h3>
+						First Name:
+						<input type="text" name="firstname">
+						<br>
+						Last Name:
+						<input type="text" name="lastname">
+						<br>
+						Age:
+						<input type="text" name="age">
+						<br>
+						Skills (comma separated):
+						<input type="text" name="skills">
+						<br>
+						Credentials (comma separated):
+						<input type="text" name="credentials">
+						<br>
+						<button type=button id="submitButton2">Submit</button>
+					</form>
+					<br><br><br>
+
+					<h3 id="postSubmitMessage"></h4>
+					<script src="js/volunteer.js"></script>
+      		<script src="js/event.js"></script>
+      	</section>
+    </body>
+</html>

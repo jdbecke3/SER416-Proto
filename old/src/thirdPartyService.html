@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+    <!--event.html?jsonEvent={%22dateOfEvent%22:%222018-05-11T04:21:29.222Z%22,%22description%22:%22why%20cant%20I%20think%20of%20any%20events,%20....%22,%22name%22:%22spanish%20Lessons%22,%22isPublic%22:true,%22room%22:%22Room%202%22,%22teacher%22:%22Ricky%20Boobie%22,%22max_students%22:50,%22type%22:%22class%22}
+-->
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/thirdPartyService.css">
+		<script src="js/objects.js"></script>
+		<script src="js/functions.js"></script>
+		<title>Community Serviec Event Planner</title>
+	</head>
+
+
+	<body>
+		<header>
+			<h1>Community Service Site</h2> <!-- Change later-->
+			<nav>
+				<ul>
+					<li><a href="calendar.html" src="./calendar.html">Calendar</a></li>
+					<li><a href="./planner.html">Host</a></li>
+					<li><div id="classesLink">Classes</div></li>
+					<li><a href="volunteer.html" src="./volunteer.html">Volunteer</a></li>
+          <li><a href="thirdPartyService.html" src="./thirdPartyService.html">3rd Party Services</a></li>
+					<li><a href src="./donate.html">Donate</a></li>
+				</ul>
+			</nav>
+		</header>
+        <section class="bodyContent">
+          <h1> 3rd Party Service Yay! </h1>
+					<img src="https://i.ytimg.com/vi/fhevmoGb7vU/hqdefault.jpg">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, elit id ultrices laoreet, massa orci posuere diam, vulputate ultrices libero nibh vitae leo. Nam ultrices nisi ante, vel interdum ipsum facilisis pellentesque. Curabitur placerat tincidunt iaculis. Quisque ac consequat lectus. Donec ornare commodo nibh et pharetra. Nulla facilisi. Nulla eu dapibus turpis, et pulvinar mi. Nullam in luctus nunc. Aliquam pharetra vulputate vulputate. Nullam posuere elit vitae tincidunt iaculis. Donec pellentesque ultricies iaculis. Sed ut odio orci.</p>
+					<button id='req-shuttle'> Order a Shuttle </button>
+					<button id='req-clean'> Order a Cleaner </button>
+
+					<!-- Shuttle Form -->
+					<form id='shuttleForm'>
+						<h3> Shuttle Service Form </h3>
+						First Name:
+						<input type="text" name="firstname">
+						<br>
+						Last Name:
+						<input type="text" name="lastname">
+						<br>
+						Address:
+						<input type="text" name="age">
+						<br>
+						Date:
+						<input id="datetime" type="datetime-local">
+						<br>
+						Type of Shuttle: <br>
+						<input type="radio" name="shuttleType" value="Fancy" checked> Fancy <br>
+						<input type="radio" name="shuttleType" value="Basic"> Basic <br>
+						<input type="radio" name="shuttleType" value="Tuktuk"> Tuktuk <br>
+						<br>
+						<button type=button id="submitButton">Submit</button>
+					</form>
+					<br><br><br>
+
+					<!-- Cleaner Form -->
+					<form id='cleanerForm'>
+						<h3> Cleaning Form </h3>
+						First Name:
+						<input type="text" name="firstname">
+						<br>
+						Last Name:
+						<input type="text" name="lastname">
+						<br>
+						Age:
+						<input type="text" name="age">
+						<br>
+						Cleaning Needed:
+						<input type="text" name="skills">
+						<br>
+						Date:
+						<input id="datetime" type="datetime-local">
+						<br>
+						<button type=button id="submitButton1">Submit</button>
+					</form>
+					<br><br><br>
+
+					<h3 id="postSubmitMessage"></h4>
+					<script src="js/thirdPartyService.js"></script>
+      		<script src="js/event.js"></script>
+      	</section>
+    </body>
+</html>

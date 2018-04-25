@@ -1,0 +1,12 @@
+.inlineData{
+    display: inline;
+}
+#convermationMessageDiv{
+    width: 100%;
+    min-height: 200px;
+    text-align: center;
+}
+#message{
+    height: 100%;
+    padding-top: 10%;
+}
