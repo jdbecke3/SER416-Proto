@@ -1,6 +1,7 @@
 
+
 /* The Modal (background) */
-.modalHost {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -14,16 +15,52 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+
+/* The Modal (background) */
+.modalHost {
+}
+
 /* Modal Content */
 .popup-contentHost {
-    background-color: #1abc9c;
+    max-width: 400px;
+    min-height: 120px;
+}
+
+/* Modal Content */
+.popup-content {
+    background-color: #222629;
     color: white;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 400px;
-    min-height: 120px;
+    border-radius: 20px;
+}
+
+
+.popupButton{
+    background-color: #fBE8A690;
+    border-color: #1b223d99;
+    color: white;
+}
+.popupButton:hover{
+    background-color: rgba(112, 94, 27, 0.565);
+    cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: darkred;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 html {
@@ -262,11 +299,6 @@ nav ul li div:hover{
     visibility: visible;
 }
 
-#closeBtn {
-
-user-select: none;
-
-}
 rect{
 	cursor: pointer;
 }
