@@ -8,7 +8,7 @@ document.getElementById("req-shuttle").addEventListener("click", function() {
 document.getElementById("req-clean").addEventListener("click", function() {
   let shuttleForm = document.getElementById('shuttleForm');
   let cleanerForm = document.getElementById('cleanerForm');
-  cleanerForm.style.display = 'none';
+  shuttleForm.style.display = 'none';
   cleanerForm.style.display = 'block';
 });
 
