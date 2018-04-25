@@ -53,10 +53,24 @@ body {
 	font-family: 'bakersfield_light';
     src: url("bakersfield/Bakersfield_Light.ttf");
 }
+@font-face {
+	font-family: 'summerlove';
+    src: url("Summerlove/SummerLove.otf");
+}
+@font-face {
+	font-family: 'blackhand';
+    src: url("blackhand/blackHand_TRIAL.otf");
+}
+@font-face {
+	font-family: 'springiscoming';
+    src: url("springiscoming/SpringisComingOTF.otf");
+}
+@font-face {
+	font-family: 'typolino';
+    src: url("Typolino/Typolino.otf");
+}
 header {
-	font-family: bakersfield;
-
-
+	font-family: typolino;
 }
 .center{
 	text-align: center;
@@ -68,7 +82,7 @@ header h1 {
 	text-align: center;
 	margin-top: 0;
 	margin-bottom: 24px;
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 36px;
 	padding-top: 10px;
 }
@@ -141,7 +155,7 @@ nav {
 	border-top: 2px, white;
 	background-color:#fBE8A690;
 	max-height: 100px;
-	font-family: bakersfield;	
+	font-family: blackhand;	
 
 }
 
