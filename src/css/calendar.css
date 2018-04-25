@@ -22,7 +22,7 @@ body {font-family: Verdana, sans-serif;}
     border-top-left-radius: 10px;
 }
 #MonthSection{
-    background-color: #9b121290;
+    background-color: #fBE8A690;
     width:100%;
     border-radius: 15px;
 }
@@ -182,12 +182,12 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .popupButton{
-    background-color: #9b121290;
+    background-color: #fBE8A690;
     border-color: #1b223d99;
     color: white;
 }
 .popupButton:hover{
-    background-color: #53000090;
+    background-color: rgba(112, 94, 27, 0.565);
     cursor: pointer;
 }
 
