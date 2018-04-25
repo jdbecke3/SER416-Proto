@@ -270,9 +270,6 @@ user-select: none;
 rect{
 	cursor: pointer;
 }
-rect:hover{
-	fill: #9b601290 !important;
-}
 
 g text{
 	cursor: pointer;
