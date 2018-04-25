@@ -201,7 +201,7 @@ body {font-family: Verdana, sans-serif;}
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: darkred;
     text-decoration: none;
     cursor: pointer;
 }
