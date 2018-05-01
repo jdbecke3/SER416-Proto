@@ -12,3 +12,8 @@
     display: none;
     padding-top: 1em;
 }
+
+img {
+  display: block;
+  margin: auto;
+}
