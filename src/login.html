@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script src="js/objects.js"></script>
+		<script src="js/functions.js"></script>
+		<title>Login</title>
+	</head>
+
+	<body>
+
+		<header>
+			<h1>Community Service Site Login</h2> <!-- Change later-->
+			
+		</header>
+		<section class="bodyContent">
+
+
+		<div id="login-div">
+			<h3>Username</h3>
+			<input type="text" id="username" required><br>
+			<h3>Password</h3>
+			<input type="password" id="pword" required><br>
+			<input type="button" id="login" value="Login">
+		</div>
+		<script type="text/javascript">
+			document.getElementById("login").onclick= function(){
+				var username=document.getElementById("username").value
+				var pword=document.getElementsById("pword").value
+				if(getPersistence().login(username,pword))
+					window.location.href="home.html";
+				else
+					alert("Incorrect Username or Password")
+			}
+		</script>	
+		
+	<script src="./js/objects.js" type="text/javascript"></script>
+	</body>
+
+
+</html>
